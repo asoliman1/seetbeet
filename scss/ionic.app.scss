@@ -1,0 +1,34 @@
+$light: #EAEAEA;
+$stable: #F06EAA;
+$positive: #C80478;
+$calm: #60023A;
+$link-color: $calm;
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss";
+
+
+
+body {
+	color: #FFFFFF;
+}
+
+body.platform-ios {
+	font-family: Lora, serif;
+}
+
+.ionic-body.platform-ios {
+	font-family: Lora, serif;
+}
+
+body.platform-android {
+	font-family: Lora, serif;
+}
+
+.ionic-body.platform-android {
+	font-family: Lora, serif;
+}
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,.tab-item,input,button,select,textarea {
+	font-family: inherit;
+}
+

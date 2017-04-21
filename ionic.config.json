@@ -1,0 +1,8 @@
+{
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "name": "SeetBeet",
+  "app_id": "9dac2eaf"
+}

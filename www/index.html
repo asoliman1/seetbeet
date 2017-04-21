@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="stylesheet" href="fonts/lora/css/fonts.css">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+
+
+    
+
+
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      .platform-ios .manual-ios-statusbar-padding{
+        padding-top:20px;
+      }
+      .manual-remove-top-padding{
+        padding-top:0px;
+      }
+      .manual-remove-top-padding .scroll{
+        padding-top:0px !important;
+      }
+      ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+        margin-left:-10px;
+        margin-right:-10px;
+      }
+      ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+        border-radius:0px;
+        border-left:0px;
+        border-right: 0px;
+      }
+      .show-list-numbers-and-dots ul{
+        list-style-type: disc;
+        padding-left:40px;
+      }
+      .show-list-numbers-and-dots ol{
+        list-style-type: decimal;
+        padding-left:40px;
+      }
+    </style>
+
+    
+    <script src="lib/bluebird.min.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic.cloud.min.js"></script>
+
+    <script src="js/services/config.js"></script>
+    <script src="js/services/httpCaller.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/services.js"></script>
+    <script src="templates/contactUs/contactUs.js"></script>
+    <script src="templates/editprofile/editprofile.js"></script>
+    <script src="templates/fees/fees.js"></script>
+    <script src="templates/login/login.js"></script>
+    <script src="templates/main/main.js"></script>
+    <script src="templates/notifications/notifications.js"></script>
+    <script src="templates/productShow/productShow.js"></script>
+    <script src="templates/productShow/product/product.js"></script>
+    <script src="templates/profile/profile.js"></script>
+    <script src="templates/signup/signup.js"></script>
+    <script src="templates/stores/stores.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=El%20Messiri" rel="stylesheet">
+  
+
+  </head>
+  <body ng-app="app" animation="slide-left-right-ios7">
+  <div>
+  <ion-side-menus enable-menu-with-back-views="true" data-componentid="side-menu21">
+    <ion-side-menu-content>
+      <ion-nav-bar class="bar-stable">
+
+        <ion-nav-buttons side="right">
+          <button class="button button-icon  " menu-toggle="right">
+            <img style="width:30px;height:15px;" src="img/Forma 4.png">
+          </button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+      <ion-nav-view></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="right" id="side-menu21" style="background-color:#eee7ef;">
+      <ion-header-bar class="bar-stable">
+        <div class="title">القائمة</div>
+      
+      </ion-header-bar>
+      <ion-content padding="true" class="side-menu-right has-header " ng-controller="menuCtrl">
+        <ion-list id="menu-list1" data-componentid="list1">
+          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(1)">
+            <img style="float:right;margin:auto;height:110%;" src="img/1.png">
+            الرئيسية</ion-item>
+           <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(2)">
+             <img style="float:right;margin:auto;height:110%;" src="img/4.png">
+            منتجاتي</ion-item>
+             <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(3)">
+             <img style="float:right;margin:auto;height:110%;" src="img/5.png">
+            اضافه منتج</ion-item>
+          <ion-item class="item-icon-left stable" id="menu-list-item" ng-click="navigateMenu(4)">
+             <img style="float:right;margin:auto;height:110%;" src="img/50.png">
+            العنوان</ion-item>
+          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(5)">
+            <img style="float:right;margin:auto;height:110%;" src="img/8.png">
+            الأشعارات</ion-item>
+          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(6)">
+             <img style="float:right;margin:auto;height:110%;" src="img/07.png">
+            عن التطبيق</ion-item>
+          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(7)">
+             <img style="float:right;margin:auto;height:110%;" src="img/9.png">
+            اشتراك المتجر</ion-item>
+          <ion-item id="menu-list-item" menu-close="" ng-click="navigateMenu(8)">
+             <img style="float:right;margin:auto;height:110%;" src="img/10.png">
+            تسجيل الخروج</ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-side-menu>
+  </ion-side-menus>
+</div>
+  </body>
+</html>

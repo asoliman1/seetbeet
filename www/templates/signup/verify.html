@@ -1,0 +1,19 @@
+<ion-view title="verify" hide-nav-bar="true" >
+  <ion-content padding="true" style="background: url(img/RHFc7hLZSlOeWzeSMEDQ_4.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding">
+    <div class="spacer" style="width: 300px; height: 61px;"></div>
+    <div>
+      <img src="img/LOOOGO.png" style="display: block; width: 70%; height: 200%; margin-left: auto; margin-right: auto;">
+    </div>
+    <div class="spacer" style="width: 300px; height: 65px;"></div>
+<form name="verifyform" novalidate>
+    <label class="item item-input item-floating-label" id="item">
+          <span class="input-label">رقم التفعيل</span>
+          <input style="font-size: 20px" type="number" ng-model="verficationNo" placeholder="رقم التفعيل " ng-minlength="4" required>
+        </label>
+    <a  id="login0-button5" class="button button-stable  button-block" ng-click="verify()" ng-disabled="verify.form.$invalid">
+      دخول
+      <img style="height:20px;width:20px;" src="img/Forma 1.png"/>
+      </a>
+</form>
+  </ion-content>
+</ion-view>
