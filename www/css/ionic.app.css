@@ -9805,10 +9805,17 @@ from  {background-color:rgb(255, 153, 153); left:200px; top:0px;}
  
 }
 
+
+
+
 .input-label {
   color: #C80478;
   font-family: 'El Messiri', sans-serif;
   
+}
+
+html , body {
+    text-overflow: clip;
 }
 
 #item{
@@ -9845,11 +9852,11 @@ from  {background-color:rgb(255, 153, 153); left:200px; top:0px;}
 #menu-list-item {
   text-align: center;
   font-family: 'El Messiri', sans-serif;
-  font-weight: 100;
+  font-weight: 50;
   color:black;
   border: 2px solid #FFFFFF;
   background-color: rgba(246, 242, 246, 0.9);
-  height: 60px;
+  height: 50px;
   width: auto;
 
 }

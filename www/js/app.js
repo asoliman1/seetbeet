@@ -1,65 +1,22 @@
 
-angular.module('app', ['ionic', 'ionic.cloud', 'app.routes','app.directives'])
+angular.module('app', ['ionic', 'ionic.cloud', 'app.routes','app.directives','ngCordova'])
 
-.config(function($ionicConfigProvider, $sceDelegateProvider, $ionicCloudProvider){
-   $ionicCloudProvider.init({
-    "core": {
-      "app_id": "9dac2eaf"
-    } ,
-    "push": {
-      "sender_id": "591234183534",
-      "pluginConfig": {
-        "ios": {
-          "badge": true,
-          "sound": true
-        },
-        "android": {
-          "iconColor": "#343434"
-        }}}
-  });
-  
-    $ionicConfigProvider.backButton.text('').previousTitleText(false);
-  
+.config(function($ionicConfigProvider, $sceDelegateProvider){
+
+    
+  $ionicConfigProvider.backButton.text('').previousTitleText(false);
+  $ionicConfigProvider.tabs.position('bottom');
 
   $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
 
 })
 
 
-.controller('menuCtrl', ['$scope', '$state', function($scope, $state) {
-   
-   $scope.navigateMenu = function (a){
-     if(a==1)
-     $state.go('tabsController.main');
-     else if(a==2)
-     $state.go('productShow');
-     else if(a==3)
-     $state.go('addProduct');
-     else if(a==4)
-     $state.go('getlocation');
-     else if(a==5)
-     $state.go('notifications');
-     else if(a==6)
-     $state.go('about');
-     else if(a==7)
-     $state.go('fees');
-     else if(a==8)
-     $state.go('login0');
-    
-   }
-
-}])
-
-
-
-
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
 
-      setTimeout(function() {
-        navigator.splashscreen.hide();
-    }, 3000);
+    
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {

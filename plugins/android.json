@@ -28,7 +28,32 @@
         "phonegap-plugin-push": {
             "SENDER_ID": "591234183534",
             "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-apprate": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-image-picker": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-3dtouch": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        }
+    }
 }

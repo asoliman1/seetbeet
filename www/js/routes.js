@@ -112,13 +112,15 @@ angular.module('app.routes', [])
 
   .state('getlocation', {
     url: '/getlocation',
-    templateUrl: 'templates/getlocation/getlocation.html'
+    templateUrl: 'templates/getlocation/getlocation.html',
+    controller: 'GeoCtrl'
   
   })
 
-  .state('addProduct', {
-    url: '/addProduct',
-    templateUrl: 'templates/productShow/addProduct/addproduct.html'
+  .state('addproduct', {
+    url: '/addproduct',
+    templateUrl: 'templates/productShow/addProduct/addproduct.html' ,
+    controller: 'addproductCtrl'
   
   })
   

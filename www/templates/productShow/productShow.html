@@ -1,21 +1,11 @@
 <ion-view title="عرض المنتجات" id="page21" style="font-family: 'El Messiri', sans-serif;">
 
-  <ion-content padding="true" class="has-header" style="background-color: #eee7ee">
+  <ion-content padding="true" class="has-header" style="background-color: #eee7ee" >
     <ion-list id="page17-list12" dir="auto" >
-      <ion-item class="item-thumbnail-right" id="page17-list-item"  style="background-color: white" ng-click="navigate()">
-        <img src="img/LOOOGO.png"/>
-        <h2>احمد</h2>
-        <p>dasad</p>
-      </ion-item>
-      <ion-item class="item-thumbnail-right" id="page17-list-item" style="background-color: white" ng-click="navigate()">
-        <img src="img/LOOOGO.png"/>
-        <h2>Item</h2>
-        <p>dasad</p>
-      </ion-item>
-      <ion-item class="item-thumbnail-right" id="page17-list-item" style="background-color: white" ng-click="navigate()">
-        <img src="img/LOOOGO.png"/>
-        <h2>Item</h2>
-        <p>dasad</p>
+     <ion-item class="item-thumbnail-right" id="page17-list-item"  style="background-color:#f5f5f5 " ng-click="navigate()" ng-repeat="product in products">
+        <img ng-src="{{store.thumbnail}}"/>
+        <h2>{{product.title}}</h2>
+        <p>{{product.description}}</p>
       </ion-item>
     </ion-list>
   </ion-content>

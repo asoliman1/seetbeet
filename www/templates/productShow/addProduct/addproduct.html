@@ -1,5 +1,59 @@
-<ion-view title="اضافة منتج" id="page180" style="font-family: 'El Messiri', sans-serif;">
-  <ion-content padding="true" class="has-header" style="background-color: #eee7ee">
-<h1>اضافة منتج</h1>
+<ion-view title="اضافة منتج"  style="font-family: 'El Messiri', sans-serif;">
+  <ion-content padding="true" class="has-header" style="background-color: #eee7ee" scroll="false">
+
+<form name="addproduct">
+  <label class="item item-input" style="margin:10px;background-color: #f6f2f6">
+        <span class="input-label"> عنوان المنتج :
+          <input type="text" placeholder="" >
+        </span>
+      </label>
+
+      <div class="list">
+
+  <label class="item item-input item-select" style="margin:10px;background-color: #f6f2f6">
+    <div class="input-label">
+      الفسم
+    </div>
+    <select>
+      <option>Blue</option>
+      <option selected>Green</option>
+      <option>Red</option>
+    </select>
+  </label>
+
+</div>
+
+      <label class="item item-input"style="margin:10px;background-color: #f6f2f6" >
+        <span class="input-label"> وصف المنتج :
+          <input type="text" placeholder="" >
+          
+        </span>
+      </label>
+      
+
+      <div class="row">
+  <div class="col" style="margin-left:20px;border-bottom: 3px solid #f7abd8;">
+    <img src="img/LOOOGO.png" style="width:100%;height:70px;"/>
+  </div>
+   <div class="col" style="margin-left:20px;border-bottom: 3px solid #f7abd8;">
+    <img src="img/LOOOGO.png" style="width:100%;height:70px;"/>
+  </div>
+   <div class="col" style="border-bottom: 3px solid #f7abd8;">
+    <img src="img/LOOOGO.png" style="width:100%;height:70px;"/>
+  </div>
+</div>
+
+      <label class="item item-input" style="margin:10px;background-color: #f6f2f6">
+        <span class="input-label"> سعر المنتج :
+          <input type="number" placeholder="" >
+        </span>
+      </label>
+
+     <button class="button button-outline button-positive" style="margin-right: 150px">
+  تنفيذ
+</button>
+</form>
+
+
   </ion-content>
 </ion-view>

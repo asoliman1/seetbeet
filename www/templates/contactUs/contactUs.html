@@ -1,32 +1,34 @@
 <ion-view title="اتصل بنا" id="page16" dir="auto" style="font-family: 'El Messiri', sans-serif;">
  <ion-content padding="true"  class="has-header"  style="background-color: #eee7ee" >
-   <div class="spacer" style="height: 100px"></div>
+   <img src="img/LOOOGO.png" style="margin-top:50px;width:60%;margin-right: 70px;">
+   <div class="spacer" style="height: 50px"></div>
+   <form  name="contactform" novalidate >
     <div class="list">
   <label class="item item-input" style="background-color: white;margin: 10px;">
-    <span class="input-label2" style="margin-right: 10px;">الأسم :</span>
-    <input type="text">
+    <span class="input-label2" style="margin-right: 10px;">الأسم :
+    </span>
+    <input type="text" ng-model="contact.name">   
   </label>
-  <label class="item item-input" style="background-color: white;margin: 10px;">
+  <label class="item item-input" style="background-color: white;margin: 10px;" required >
     <span class="input-label2" style="margin-right: 10px;">البريد الأليكتروني :</span>
-    <input type="text">
+    <input type="text" ng-model="contact.email">
   </label>
   <label class="item item-input" style="background-color: white;margin: 10px;">
-    <span class="input-label2" style="margin-right: 10px;">الجوال:</span>
-    <input type="number">
+    <span class="input-label2" style="margin-right: 10px;">عنوان الرساله:</span>
+    <input type="text" ng-model="tcontact.itle" >
   </label>
-  <label class="item item-input" style="background-color: white;margin: 10px;">
-    <span class="input-label2" style="margin-right: 10px;">موضوع الرساله :</span>
-    <input type="text">
-  </label>
-  <label class="item item-input" style="background-color: white;margin: 10px;">
-    <div class="input-label2" style=" padding-bottom: 100px;margin-right: 10px;" >نص الرساله :</div>
-    <input type="text">
+  <label class="item item-input" style="background-color: white;margin: 10px;" item-text-wrap>
+    <span class="input-label2" style="margin-right: 10px;">محتوي الرساله :
+      <textarea rows="5" cols="600"></textarea>
+    </span>
+    <input type="text" ng-model="contact.content" >
   </label>
 
-    <a  id="login0-button5" class="button button-stable  button-block" ng-click="sendmsg()" >
+    <a  id="login0-button5" class="button button-stable  button-block" ng-click="submit()" ng-disabled="contactform.$invalid" >
       <img style="height:20px;width:20px; " src="img/23.png"/>
       ارسال  
       </a>
 </div>
+   </form>
   </ion-content>
 </ion-view>

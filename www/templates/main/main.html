@@ -1,5 +1,5 @@
 <ion-view title="الرئيسية" hide-nav-bar="true" id="page1754">
-  <ion-content padding="true" class=" manual-remove-top-padding" style="background-color: white">
+  <ion-content padding="true" class=" manual-remove-top-padding" style="background-color: white" scroll="false">
 
     <ion-slides disable-side-menu-drag="" options="{'loop': true}" slider="slider1" delegate-handle="slider1" id="page17-slider1" style="width:calc(100% + 20px);height:200px;margin-left:-10px;margin-right: -10px">
       <ion-slide-page id="page17-slide24" style="background:url(&quot;img/slide.png&quot;) no-repeat center;background-size:cover;"></ion-slide-page>
@@ -11,20 +11,10 @@
      </ion-slides>
     <div class="spacer" style="width: 300px; height: 20px;"></div>
     <ion-list id="page17-list12" dir="auto" >
-      <ion-item class="item-thumbnail-right" id="page17-list-item"  style="background-color:#f5f5f5 " ng-click="navigate()">
-        <img src="img/LOOOGO.png"/>
-        <h2>احمد</h2>
-        <p>dasad</p>
-      </ion-item>
-      <ion-item class="item-thumbnail-right" id="page17-list-item" style="background-color: #f5f5f5" ng-click="navigate()">
-        <img src="img/LOOOGO.png"/>
-        <h2>Item</h2>
-        <p>dasad</p>
-      </ion-item>
-      <ion-item class="item-thumbnail-right" id="page17-list-item" style="background-color: #f5f5f5" ng-click="navigate()">
-        <img src="img/LOOOGO.png"/>
-        <h2>Item</h2>
-        <p>dasad</p>
+      <ion-item class="item-thumbnail-right" id="page17-list-item"  style="background-color:#f5f5f5 " ng-click="navigate()" ng-repeat="store in stores">
+        <img ng-src="{{store.thumbnail}}"/>
+        <h2>{{store.title}}</h2>
+        <p>{{store.description}}</p>
       </ion-item>
     </ion-list>
   </ion-content>
