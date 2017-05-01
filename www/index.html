@@ -12,11 +12,10 @@
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-
-
+    <script src="lib/ionic-native-transitions.min.js"></script>
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
-
-    
+  
+   
     
 
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -25,15 +24,14 @@
     
 
     
-    <script src="lib/bluebird.min.js"></script>
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/ionic.cloud.min.js"></script>
 
   
     <script src="js/app.js"></script>
     <script src="js/routes.js"></script>
     <script src="js/directives.js"></script>
     <script src="js/app-service.js"></script>
+    <script src="js/menu.js"></script>
     <script src="templates/contactUs/contactUs.js"></script>
     <script src="templates/editprofile/editprofile.js"></script>
     <script src="templates/fees/fees.js"></script>
@@ -42,61 +40,81 @@
     <script src="templates/notifications/notifications.js"></script>
     <script src="templates/productShow/productShow.js"></script>
     <script src="templates/productShow/product/product.js"></script>
+    <script src="templates/productShow/addProduct/addproduct.js"></script>
     <script src="templates/profile/profile.js"></script>
     <script src="templates/signup/signup.js"></script>
     <script src="templates/stores/stores.js"></script>
+    <script src="templates/productShow/myproducts/myproducts.js"></script>
     <script src="templates/getlocation/getlocation.js"></script>
+    <script src="templates/mymessages/mymessages.js"></script>
+    <script src="templates/mymessages/showmessage/showmessage.js"></script>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7S75thITPEmYxcwKxw5ht-CdAM-uwrA8"
+  type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=El%20Messiri" rel="stylesheet">
   
 
   </head>
-  <body ng-app="app" animation="slide-left-right-ios10" >
-  <div>
+  <body ng-app="app" >
+  <div >
   <ion-side-menus enable-menu-with-back-views="false" data-componentid="side-menu21">
-    <ion-side-menu-content>
-      <ion-nav-bar class="bar-positive">
-
+    <ion-side-menu-content >
+      <ion-nav-bar class="bar-stable" align-title="left">
+         <ion-nav-back-button ></ion-nav-back-button>
         <ion-nav-buttons side="right">
           <button class="button button-icon  " menu-toggle="right">
             <img style="width:30px;height:15px;" src="img/Forma 4.png">
           </button>
         </ion-nav-buttons>
-        <ion-nav-back-button></ion-nav-back-button>
       </ion-nav-bar>
       <ion-nav-view animation="slide-left-right"></ion-nav-view>
     </ion-side-menu-content>
     <ion-side-menu side="right" id="side-menu21" style="background-color:#eee7ef;">
-      <ion-header-bar class="bar-stable">
+      <ion-header-bar class="bar-stable" align-title="left">
         <h1 class="title">القائمة</h1>
-      
       </ion-header-bar>
-      <ion-content padding="true"  class="side-menu-right has-header " ng-controller="signupCtrl">
-        <ion-list id="menu-list1" data-componentid="list1">
-          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(1)" >
+      <ion-content padding="true"  class="side-menu-right has-header " menu-close="" ng-controller="menuCtrl"  >
+        <div  >
+        <a class="item item-avatar" style="background: rgba(255, 0, 128,0.4);border-radius: 20px" ng-click="navigateMenu(9)" ng-if="premium||user">
+      <img ng-src="http://217.182.113.163/~setalbeet/upload/{{myprofile.logo}}">
+      <h2>{{myprofile.name}}</h2>
+      <p> </p>
+       </a>
+        </div>
+        <ion-list id="menu-list1" data-componentid="list1" >
+          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(1)"   >
             <img style="float:right;margin:auto;height:110%;" src="img/1.png">
             الرئيسية</ion-item>
-           <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(2)" ng-if="customer">
+           <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(2)" ng-if="premium"  >
              <img style="float:right;margin:auto;height:110%;" src="img/4.png">
             منتجاتي</ion-item>
-             <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(3)" ng-if="customer">
+             <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(3)"  ng-if="premium"  >
              <img style="float:right;margin:auto;height:110%;" src="img/5.png">
             اضافه منتج</ion-item>
-          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(4)">
+          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(4)" ng-if="premium||user" >
              <img style="float:right;margin:auto;height:110%;" src="img/50.png">
             العنوان</ion-item>
-          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(5)">
+            <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(10)" ng-if="premium||user" >
+             <img style="float:right;margin:auto;height:110%;" src="img/2.png">
+           تعديل بياناتي</ion-item>
+          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(5)" ng-if="premium||user" >
             <img style="float:right;margin:auto;height:110%;" src="img/8.png">
             الأشعارات</ion-item>
-          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(6)">
+            <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(11)" ng-if="premium||user" >
+            <img style="float:right;margin:auto;height:110%;" src="img/5.png">
+            الرسائل</ion-item>
+          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(6)" >
              <img style="float:right;margin:auto;height:110%;" src="img/07.png">
             عن التطبيق</ion-item>
-          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(7)" ng-if="customer" >
+          <ion-item class="item-icon-left stable" id="menu-list-item" menu-close="" ng-click="navigateMenu(7)" ng-if="premium"  >
              <img style="float:right;margin:auto;height:110%;" src="img/9.png">
             اشتراك المتجر</ion-item>
-          <ion-item id="menu-list-item" menu-close="" ng-click="navigateMenu(8)">
+          <ion-item id="menu-list-item" menu-close="" ng-click="navigateMenu(8)" ng-if="premium||user">
              <img style="float:right;margin:auto;height:110%;" src="img/10.png">
             تسجيل الخروج</ion-item>
+            <ion-item id="menu-list-item" menu-close="" ng-click="navigateMenu(12)" ng-if="!premium && !user">
+             <img style="float:right;margin:auto;height:110%;" src="img/10.png">
+            سجل معنا</ion-item>
         </ion-list>
       </ion-content>
     </ion-side-menu>

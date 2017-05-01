@@ -1,10 +1,12 @@
-<ion-view title="المتاجر" id="page15" style="font-family: 'El Messiri', sans-serif;">
+<ion-view title="المتاجر"  style="font-family: 'El Messiri', sans-serif;">
   <ion-content padding="true" class="has-header" style="background-color: #eee7ee" >
      <ion-list id="page17-list12" dir="auto" >
-      <ion-item class="item-thumbnail-right" id="page15-list-item"   ng-click="navigate()" ng-repeat="store in stores">
-        <img ng-src="{{store.thumbnail}}"/>
-        <h2>{{store.title}}</h2>
-        <p>{{store.description}}</p>
+      <ion-item class="item-thumbnail-right" id="page15-list-item"   ng-click="navigate(store.id)" ng-repeat="store in stores">
+        <img ng-src="http://217.182.113.163/~setalbeet/upload/{{store.logo}}"/>
+        <h2>{{store.name}}</h2>
+        <p>{{store.mobile}}</p>
+        <p>{{store.delivery}}</p>
+        <p>{{store.email}}</p>
       </ion-item>
     </ion-list>
   </ion-content>

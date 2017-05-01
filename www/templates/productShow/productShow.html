@@ -1,11 +1,11 @@
-<ion-view title="عرض المنتجات" id="page21" style="font-family: 'El Messiri', sans-serif;">
-
+<ion-view  title="عرض المنتجات" id="page21" style="font-family: 'El Messiri', sans-serif;">
   <ion-content padding="true" class="has-header" style="background-color: #eee7ee" >
     <ion-list id="page17-list12" dir="auto" >
-     <ion-item class="item-thumbnail-right" id="page17-list-item"  style="background-color:#f5f5f5 " ng-click="navigate()" ng-repeat="product in products">
-        <img ng-src="{{store.thumbnail}}"/>
-        <h2>{{product.title}}</h2>
-        <p>{{product.description}}</p>
+     <ion-item class="item-thumbnail-right item-text-wrap" id="page17-list-item"  style="background-color:#f5f5f5 " ng-click="navigate(product.id)" ng-repeat="product in products" >
+        <img ng-src="http://217.182.113.163/~setalbeet/upload/{{product.photo}}" style="width:70px;height:70px" >
+        <h2 class="story-title">{{product.title}}</h2>
+        <p>{{product.content}}</p>
+        <p>السعر :{{product.price}}</p>
       </ion-item>
     </ion-list>
   </ion-content>

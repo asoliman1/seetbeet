@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.clientapp698015" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>SeetBeet</name>
+<widget id="com.ionicNativeTransitions" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>ست بيت</name>
   <description>
         An Ionic Framework and Cordova project.
     </description>
@@ -9,18 +9,24 @@
     </author>
   <content src="index.html"/>
   <access origin="*"/>
+  <preference name="CrosswalkAnimatable" value="true"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="SplashScreenDelay" value="5000"/>
   <preference name="FadeSplashScreenDuration" value="1000"/>
-  <preference name="ShowSplashScreenSpinner" value="true" />  
+  <preference name="ShowSplashScreenSpinner" value="true"/>
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
+  <feature name="Camera">
+    <param name="ios-package" value="CDVCamera"/>
+    <param name="android-package" value="org.apache.cordova.camera.CameraLauncher"/>
+  </feature>
+ 
   <plugin name="phonegap-plugin-push" spec="~1.10.2">
     <variable name="SENDER_ID" value="591234183534"/>
   </plugin>
@@ -71,4 +77,5 @@
     <splash src="resources/ios/splash/Default~iphone.png" height="480" width="320"/>
   </platform>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
+  <allow-navigation href="http://192.168.1.3:8100"/>
 </widget>

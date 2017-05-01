@@ -1,8 +1,8 @@
 angular.module('app')
-.controller('signupCtrl', ['$scope', '$state','appService',function($scope, $state,appService ) {
-    $scope.customer='';
+.controller('signupCtrl', ['$scope', '$state','appService','$ionicHistory',function($scope, $state,appService,$ionicHistory ) {
     
-    var type = function (){ 
+    
+     type = function (){ 
     if($scope.customer)
     return 'premium';
     else
@@ -14,37 +14,24 @@ angular.module('app')
       mobile:'',
       password:'',
       password_confirm:'',
-      level: 'user'
+      level: type()
     }
-
-
-    $scope.navigateMenu = function (a){
-     if(a==1)
-     $state.go('tabsController.main');
-     else if(a==2)
-     $state.go('productShow');
-     else if(a==3)
-     $state.go('addproduct');
-     else if(a==4)
-     $state.go('getlocation');
-     else if(a==5)
-     $state.go('notifications');
-     else if(a==6)
-     $state.go('about');
-     else if(a==7)
-     $state.go('fees');
-     else if(a==8)
-     $state.go('login0');
-    
-   }
     
      $scope.signup = function () {
         appService.showLoading("جاري التسجيل");
-        appService.register($scope.user,function(){
+        appService.register($scope.user,function(res){
+          appService.type=res.user.level;
+          var access_token= res.user.api_token;
+           appService.saveAccessToken(access_token);
+           appService.hideLoading();
              $state.go("verify");
+             $ionicHistory.nextViewOptions({HistoryRoot: false});
+            console.log(type());
+
+             
       },
-      function(){
-        console.log("failed");
+      function(err){
+        appService.showAlert("خطأ",err.message)
       })
       
     }
@@ -52,11 +39,19 @@ angular.module('app')
 
         $scope.code='';
     $scope.verify = function () {
-      appService.activesms($scope.code,function(){
-          appService.showAlert("تمت عمليه التسجيل بنجاح");
+      appService.showLoading("جاري التفعيل")
+      appService.activesms($scope.code,function(res){
+         $ionicHistory.clearCache();
+                  $ionicHistory.clearHistory();
+                  $ionicHistory.nextViewOptions({
+                      disableBack: true,
+                      historyRoot: true
+                  });
+                  appService.hideLoading();
+           appService.showAlert("تمت عمليه التسجيل بنجاح");
           $state.go("tabsController.main");
-      },function(){
-        console.log("failed");
+      },function(err){
+        appService.showAlert("خطأ",err.message)
       });
       
       

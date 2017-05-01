@@ -18,15 +18,25 @@ angular.module('app.routes', [])
 
   .state('login1', {
     url: '/login1',
+      nativeTransitions:  {
+    "type"          : "fade",
+    "duration"      :  500,// 'open|close', default 'open', note that close is not behaving nicely on Crosswalk
+ },
     templateUrl: 'templates/login/login1.html',
     controller: 'login1Ctrl'
   })
 
   .state('login0', {
     url: '/login0',
+      nativeTransitions:  {
+    "type"          : "fade",
+    "duration"      :  500,// 'open|close', default 'open', note that close is not behaving nicely on Crosswalk
+ },
     templateUrl: 'templates/login/login0.html',
     controller: 'login0Ctrl'
   })
+
+  
 
   .state('verify', {
     url: '/verify',
@@ -37,6 +47,10 @@ angular.module('app.routes', [])
 
   .state('signup', {
     url: '/signup',
+    nativeTransitions:  {
+    "type"          : "fade",
+    "duration"      :  500,// 'open|close', default 'open', note that close is not behaving nicely on Crosswalk
+ },
     templateUrl: 'templates/signup/signup.html',
     controller: 'signupCtrl'
   })
@@ -72,7 +86,7 @@ angular.module('app.routes', [])
 
   .state('productShow', {      
     url: '/productShow',
-    templateUrl: 'templates/productShow/productshow.html',
+    templateUrl: 'templates/productShow/productShow.html',
     controller: 'productShowCtrl'
   })
 
@@ -123,19 +137,42 @@ angular.module('app.routes', [])
     controller: 'addproductCtrl'
   
   })
+
+  .state('myproducts', {
+    url: '/myproducts',
+    templateUrl: 'templates/productShow/myproducts/myproducts.html' ,
+    controller: 'myproductsCtrl'
   
-  .state('tabsController.editprofile', {
+  })
+
+  .state('mymessages', {
+    url: '/mymessages',
+    templateUrl: 'templates/mymessages/mymessages.html' ,
+    controller: 'mymessagesCtrl'
+  
+  })
+
+  .state('message', {
+    url: '/message',
+    templateUrl: 'templates/mymessages/showmessage/showmessage.html' ,
+    controller: 'messageCtrl'
+  
+  })
+  
+  .state('editprofile', {
+
     url: '/editprofile',
-    views: {
-      'tab3': {
-        templateUrl: 'templates/editprofile/editprofile.html',
-        controller: 'editprofileCtrl'
-      }
-    }
+    templateUrl: 'templates/editprofile/editprofile.html',
+    controller: 'editprofileCtrl'
+      
   })
 
  .state('tabsController.main', {
     url: '/main',
+      nativeTransitions:  {
+    "type"          : "fade",
+    "duration"      :  500,// 'open|close', default 'open', note that close is not behaving nicely on Crosswalk
+ },
     views: {
       'tab5': {
         templateUrl: 'templates/main/main.html',

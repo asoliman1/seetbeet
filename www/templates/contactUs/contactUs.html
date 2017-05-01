@@ -4,24 +4,24 @@
    <div class="spacer" style="height: 50px"></div>
    <form  name="contactform" novalidate >
     <div class="list">
-  <label class="item item-input" style="background-color: white;margin: 10px;">
+  <label class="item item-input" style="background-color: white;margin: 10px;" id="contactuspage">
     <span class="input-label2" style="margin-right: 10px;">الأسم :
     </span>
     <input type="text" ng-model="contact.name">   
   </label>
-  <label class="item item-input" style="background-color: white;margin: 10px;" required >
+  <label class="item item-input" style="background-color: white;margin: 10px;"  id="contactuspage" required >
     <span class="input-label2" style="margin-right: 10px;">البريد الأليكتروني :</span>
     <input type="text" ng-model="contact.email">
   </label>
-  <label class="item item-input" style="background-color: white;margin: 10px;">
+  <label class="item item-input" style="background-color: white;margin: 10px;" id="contactuspage" >
     <span class="input-label2" style="margin-right: 10px;">عنوان الرساله:</span>
-    <input type="text" ng-model="tcontact.itle" >
+    <input type="text" ng-model="contact.title" >
   </label>
-  <label class="item item-input" style="background-color: white;margin: 10px;" item-text-wrap>
+  <label class="item item-input" style="background-color: white;margin: 10px;"  id="contactuspage" item-text-wrap>
     <span class="input-label2" style="margin-right: 10px;">محتوي الرساله :
       <textarea rows="5" cols="600"></textarea>
     </span>
-    <input type="text" ng-model="contact.content" >
+    <input type="text" ng-model="contact.subject" >
   </label>
 
     <a  id="login0-button5" class="button button-stable  button-block" ng-click="submit()" ng-disabled="contactform.$invalid" >

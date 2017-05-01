@@ -1,44 +1,78 @@
-<ion-view title="تعديل بيناتي" id="page19"  style="font-family: 'El Messiri', sans-serif;">
+<ion-view title="تعديل بيناتي"  style="font-family: 'El Messiri', sans-serif;">
   <ion-content  padding="true" style="background: url(img/485.png) no-repeat center;background-size:cover;background-position: center" class="has-header" >
   <img src="img/LOOOGO.png" style="margin-top:50px;width:60%;margin-right: 70px;">
-   <img src="img/eclip.png" style="margin-top:10px;width:40%;margin-right: 90px;">
-    <form id="page19-form11" class="list" ng-model="ahmed">
+  <a  ng-click="setImage()"  > <img ng-src="http://217.182.113.163/~setalbeet/upload/{{myprofile.logo}}" alt="Avatar" style="margin-top:10px;width:40%;margin-right: 90px;"/></a>
+    <form id="page19-form11" name="form" class="list" >
       <label class="item item-input" id="page202-input">
-        <span class="input-label">
-          الأسم:
-          </span>
-        <input type="text" placeholder=""  ng-disabled="ahmed" >
+        <span class="input-label">الأسم:</span>
+        <input type="text" placeholder=""   ng-model="myprofile.name"  name="name" required >
       </label>
       
       <label class="item item-input" id="page202-input" >
-        <span class="input-label"> رقم الجوال:
-        </span>
-        <input type="number" placeholder=""  ng-disabled="ahmed">
+        <span class="input-label"> رقم الجوال:</span>
+        <input type="text" placeholder=""  ng-model="myprofile.mobile" name="mobile" required >
+      </label>
+      
+      <label class="item item-input" id="page202-input">
+        <span class="input-label"> البلد :</span>
+        <input type="text" placeholder="" ng-model="mycountry"   >
+      </label>
+       <label class="item item-input" id="page202-input">
+        <span class="input-label"> المنطقه :</span>
+        <input type="text" placeholder="غير متاح" ng-model="myarea"   >
+      </label>
+       <label class="item item-input" id="page202-input">
+        <span class="input-label"> المدينه :</span>
+        <input type="text" placeholder="غير متاح" ng-model="mycity"   >
+      </label>
+       <label class="item item-input" id="page202-input">
+        <span class="input-label"> الواتس اب :</span>
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.whatsapp"   >
+      </label>
+      <label class="item item-input" id="page202-input">
+        <span class="input-label"> الفيس بوك :</span>
+        <input type="text" placeholder="" ng-model="myprofile.facebook"   >
+      </label>
+      
+      
+      <label class="item item-input" id="page202-input">
+        <span class="input-label"> جوجل بلس :</span>
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.google_plus"   >
+      </label>
+      <label class="item item-input" id="page202-input">
+        <span class="input-label"> انستجرام :</span>
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.instagram"  >
       </label>
 
-      <label class="item item-input" id="page202-input" >
-        <span class="input-label"> موقعي:
-        </span>
-        <input type="text" placeholder=""  ng-disabled="ahmed">
+        <label class="item item-input" id="page202-input"  >
+        <span class="input-label"> وصف المتجر :</span>
+        <input type="text" placeholder=""  >
       </label>
-      <label class="item item-input" id="page202-input">
-        <span class="input-label">  اسم المتجر:
-        </span>
-        <input type="text" placeholder=""  ng-disabled="ahmed">
+        <label class="item item-input" id="page202-input">
+        <span class="input-label"> البريد الأليكتروني :</span>
+        <input type="text" placeholder="" ng-model="myprofile.email"  name="email"   required >
       </label>
-      <label class="item item-input" id="page202-input">
-        <span class="input-label"> البريد الأليكتروني :
-        </span>
-        <input type="email" placeholder=""  ng-disabled="ahmed">
+        <label class="item item-input" id="page202-input"  >
+        <span class="input-label"> طرق التوصيل :</span>
+        <input type="text" placeholder="" ng-model="myprofile.delivery"   >
       </label>
-      <label class="item item-input" id="page202-input">
+        <label class="item item-input" id="page202-input"  >
+        <span class="input-label">  ساعات العمل :</span>
+        <input type="text" placeholder=""   >
+      </label>
+      <label class="item item-input" id="page202-input"  required >
         <span class="input-label"> كلمه المرور :
         </span>
-        <input type="password" placeholder=""  ng-disabled="ahmed">
+        <input type="password" placeholder=""   ng-model="myprofile.password"  name="password" required >
       </label>
-     <button id="page10-button9" class="button button-stable  button-block" type="submit">
+      <label class="item item-input" id="page202-input" >
+        <span class="input-label"> تأكيد المرور :
+        </span>
+        <input type="password" placeholder=""   ng-model="myprofile.password_confirmation" name="passwordconfirm" required >
+      </label>
+      
+     <button id="page10-button9" class="button button-stable  button-block" type="submit" ng-click="update()">
         تعديل
-
         <img style="height:20px;width:20px;" src="img/18.png"/>
       </button>
     </form>

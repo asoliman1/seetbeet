@@ -5,7 +5,7 @@ angular.module('app')
        name:'',
        email:'',
        title:'',
-       content:''
+       subject:''
    }
         $scope.submit = function (){
                 appService.contactUs($scope.contact,function(){

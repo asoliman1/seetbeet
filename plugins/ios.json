@@ -20,8 +20,23 @@
         "cordova-plugin-apprate": {
             "PACKAGE_NAME": "com.ionicframework.clientapp698015"
         },
-        "cordova-plugin-image-picker": {
-            "PHOTO_LIBRARY_USAGE_DESCRIPTION": " ",
+        "cordova-plugin-3dtouch": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "com.telerik.plugins.wkwebview": {
+            "WKWEBVIEW_SERVER_PORT": "12344",
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-media-capture": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "MICROPHONE_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.ionicframework.clientapp698015"
         },
         "cordova-plugin-camera": {
@@ -29,7 +44,16 @@
             "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.ionicframework.clientapp698015"
         },
-        "cordova-plugin-3dtouch": {
+        "com.telerik.plugins.nativepagetransitions": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.clientapp698015"
         }
     },
@@ -40,13 +64,7 @@
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.clientapp698015"
         },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ionicframework.clientapp698015"
         },
         "ionic-plugin-keyboard": {
@@ -56,6 +74,9 @@
             "PACKAGE_NAME": "com.ionicframework.clientapp698015"
         },
         "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        },
+        "cordova-plugin-webserver": {
             "PACKAGE_NAME": "com.ionicframework.clientapp698015"
         }
     }
