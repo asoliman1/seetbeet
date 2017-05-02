@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('addproductCtrl', ['$scope' , '$state' ,'appService' ,'$cordovaCamera' ,function ($scope,$state,appService,$cordovaCamera){
+    .controller('addproductCtrl', ['$scope' , '$state' ,'appService' ,'$cordovaCamera','$cordovaFileTransfer' ,function ($scope,$state,appService,$cordovaCamera,$cordovaFileTransfer){
                $scope.departments=[];
                $scope.subdepartments=[];
                $scope.areas=[];
@@ -28,7 +28,7 @@ angular.module('app')
                
 
                $scope.ready = false;
-               $scope.images = [];
+               $scope.image='';
     
                
     
@@ -44,8 +44,8 @@ angular.module('app')
 
                         $cordovaCamera.getPicture(options).then(function(imageUri) {
                             console.log('img', imageUri);
-                            $scope.images.push(imageUri);
-                                    
+                            $scope.image=imageUri;
+                            
                         }, function(err) {
                         // error
                         });
@@ -64,7 +64,7 @@ angular.module('app')
                         correctOrientation:true
                           };
                     $cordovaCamera.getPicture(options).then(function(data){
-                        $scope.pictureUrl= 'data:image/jpeg;base64,' + data
+                        $scope.pictureUrl= 'data:image/jpg;base64,' + data
                         console.log(angular.toJson(data));
                     }, function(error){
                         console.log(angular.toJson(data));

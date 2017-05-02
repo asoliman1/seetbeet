@@ -16,7 +16,15 @@ angular.module('app')
       password_confirm:'',
       level: type()
     }
-    
+    $scope.getrules=function(){
+      appService.showLoading("جاري التحميل")
+      appService.getrules(function(res){
+        appService.hideLoading();
+        appService.showAlert("الشروط و الأحكام",res.data.content);
+      },function(err){
+
+      })
+    }
      $scope.signup = function () {
         appService.showLoading("جاري التسجيل");
         appService.register($scope.user,function(res){

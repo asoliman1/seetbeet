@@ -1,14 +1,14 @@
 angular.module('app')
 .controller('messageCtrl', ['$scope', '$state', 'appService' ,function($scope, $state,appService) {
-        $scope.message='';
-        appService.getmessage(function(res){
-                $scope.message=res;
-                console.log($scope.message);
+       $scope.mymessages=[];
+        appService.showLoading("جاري تحميل الرسائل");
+        appService.mymessages(function(res){
+                $scope.mymessages=res.data.data;
+                appService.hideLoading();
+                console.log($scope.mymessages);
         },function(err){
                 console.log(err)
         })
-        
-        
         
 
 

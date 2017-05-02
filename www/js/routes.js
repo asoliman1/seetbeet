@@ -120,7 +120,8 @@ angular.module('app.routes', [])
 
   .state('about', {
     url: '/about',
-    templateUrl: 'templates/about.html'
+    templateUrl: 'templates/about.html',
+    controller: 'aboutCtrl'
   
   })
 

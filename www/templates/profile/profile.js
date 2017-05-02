@@ -14,17 +14,29 @@ angular.module('app')
                  cityid=$scope.myprofile.city;
                  areaid=$scope.myprofile.area;
                  countryid=$scope.myprofile.country;
+                 $scope.gettype=function(){
+                     if(res.level=="premium")
+                     return true
+                     else
+                     return false
+                 }
             },function(err){
                 console.log(err);
             })
                 
             appService.getcountries(function(res){
-                   $scope.mycountry= appService.searchByid(countryid,res.data)
-                   $scope.mycountry=$scope.mycountry.name
+                   $scope.mycountry= appService.searchByid(countryid,res.data).name;
+                   $scope.mycountry=$scope.mycountry
                 },function(err){
 
                 })
 
+                appService.getexpire(function(res){
+                    $scope.expire=res.data
+                },function(err){
+                    console.log(err);
+                })
+                
                 appService.getAreas(function(res){
                     $scope.myarea=appService.searchByid(areaid,res.data).name
                     $scope.mycity=appService.searchByid(cityid,appService.searchByid(areaid,res.data).city).name;
@@ -32,6 +44,7 @@ angular.module('app')
                 },function(err){
                     
                 })
+                
             
 
 }])

@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('editprofileCtrl', ['$scope', '$state','appService','$cordovaCamera',function($scope, $state , appService,$cordovaCamera) {
+.controller('editprofileCtrl', ['$scope', '$state','appService','$cordovaCamera','$cordovaFileTransfer',function($scope, $state , appService,$cordovaCamera,$cordovaFileTransfer) {
    
             $scope.myarea='';
             $scope.mycountry='';
@@ -53,7 +53,6 @@ angular.module('app')
         
                 $scope.setImage = function() {
                     $scope.images=[];
-                    console.log("hi")
                     var options = {
                         quality: 50,
                         destinationType: Camera.DestinationType.FILE_URI,

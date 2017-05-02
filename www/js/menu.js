@@ -1,8 +1,9 @@
 angular.module('app')
-.controller('menuCtrl', ['$scope', '$state', 'appService','$ionicHistory',function($scope, $state ,appService,$ionicHistory) {
+.controller('menuCtrl', ['$scope', '$state', 'appService','$ionicHistory','$cordovaInAppBrowser',function($scope, $state ,appService,$ionicHistory,$cordovaInAppBrowser) {
        $scope.myprofile='';
       $scope.premium=false;
       $scope.user=false;
+      var api_token='';
       $scope.navigateMenu=function(a){
                 if(a==1)
                 $state.go('tabsController.main');
@@ -16,8 +17,25 @@ angular.module('app')
                 $state.go('notifications');
                else if(a==6)
                 $state.go('about');
-               else if(a==7)
-                $state.go('fees');
+                else if ( a==7){
+                   var options = {
+                      location: 'yes',
+                      clearcache: 'yes',
+                      toolbar: 'no'
+                    };
+                  $cordovaInAppBrowser.open('http://217.182.113.163/~setalbeet/api/renewal?api_token='+api_token, '_system', options)
+                    .then(function(event) {
+                      console.log("succes");
+                    })
+                    .catch(function(event) {
+                      // error
+                    });
+
+
+    $cordovaInAppBrowser.close();
+
+
+                }
                else if(a==8){
                   $ionicHistory.clearCache();
                   $ionicHistory.clearHistory();
@@ -41,7 +59,7 @@ angular.module('app')
     
          
              appService.myprofile(function(res){
-              console.log(res.api_token)
+               api_token=res.api_token;
                 $scope.myprofile=res;
               if(res.api_token!=null){
                   if(res.level=="premium")

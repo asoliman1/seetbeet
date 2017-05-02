@@ -42,12 +42,13 @@
       getnotify:getnotify,
       mymessages:mymessages,
       getmessage:getmessage,
+      getabout:getabout,
+      getrules:getrules,
+      getexpire:getexpire
    //  addreply:addreply,
     //   deletereply:deletereply
     };
     var storeId;
-    console.log(storeId);
-    console.log(localStorage.getItem(tokenStr))
 
     function saveAccessToken(access_token){
       localStorage.setItem(tokenStr, access_token);
@@ -146,7 +147,9 @@
         });
     }
 
-    function uploadFile(url, file) {
+    function uploadFile(type, file , success , error) {
+      var url = "http://217.182.113.163/~setalbeet/api/upload?api_token="+localStorage.getItem(tokenStr)+"&"
+      +"type="+type+"&"+"file="+file;
       var fd = new FormData();
       fd.append('file', file);
       return $http.post(url,
@@ -155,7 +158,11 @@
           withCredentials: true,
           headers: {'Content-Type': undefined},
           transformRequest: angular.identity
-        });
+        }).success(function(data){
+          console.log(data);
+        }).error(function(err){
+          console.log(err);
+        })
     }
 
     function getApiLink() {
@@ -421,6 +428,34 @@
           success(res)
       },function(err){
         error(err)
+      })
+    }
+
+    function getabout(success,error){
+      var url = getApiLink()+"page/1";
+      call(url,"GET","",function(res){
+        success(res);
+      },function(err){
+        error(err);
+      })
+    }
+
+
+    function getrules(success,error){
+      var url = getApiLink()+"page/2";
+      call(url,"GET","",function(res){
+        success(res);
+      },function(err){
+        error(err);
+      })
+    }
+
+    function getexpire(success,error){
+      var url = getApiLink()+"expire/account"
+      callAuthorized(url,"GET","",function(res){
+        success(res);
+      },function(err){
+        error(err);
       })
     }
 

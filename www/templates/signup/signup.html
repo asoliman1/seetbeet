@@ -59,7 +59,7 @@
           <span class="input-label">اعادة كلمة المرور</span>
           <input style="font-size: 20px;font-weight: 500" type="password" placeholder="اعادة كلمة المرور"  ng-model="user.password_confirm" name="confirmpassword" ng-minlength="6" required >
         </label>
-        <ion-checkbox style="text-align: left;" id="item" ng-model="filter" name="rules" required ><a href="">الموافقه علي الشروط و
+        <ion-checkbox style="text-align: left;" id="item" ng-model="filter" name="rules" required ><a class="item" ng-click="getrules()" >الموافقه علي الشروط و
           الأحكام</a></ion-checkbox>
       </div>
        <div class="padding">
@@ -114,8 +114,10 @@
           <span class="input-label">اعادة كلمة المرور</span>
           <input style="font-size: 20px;font-weight: 500" type="password" placeholder="اعادة كلمة المرور"  ng-model="user.password_confirm" name="confirmpassword" ng-minlength="6" required >
         </label>
-        <ion-checkbox style="text-align: left;" id="item" ng-model="filter" name="rules" required ><a href="">الموافقه علي الشروط و
+        <div>
+        <ion-checkbox style="text-align: left;" id="item" ng-model="filter" name="rules" required ><a  ng-click="getrules()" >الموافقه علي الشروط و
           الأحكام</a></ion-checkbox>
+        </div>
       </div>
        <div class="padding">
             <div ng-show="customerform.password.$error.required" style="color:red;">* من فضلك ادخل كلمة المرور</div>

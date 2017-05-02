@@ -50,8 +50,21 @@
         <input type="text" placeholder="" ng-model="myprofile.delivery" id="page202-input" disabled >
       </label>
         <label class="item item-input" id="page20-input" ng-show="gettype()" >
-        <span class="input-label">  ساعات العمل :</span>
-        <input type="text" placeholder="" id="page202-input" disabled >
+        <span class="input-label">  ساعات العمل من:</span>
+        <input type="text" placeholder="غير متاح" id="page202-input" ng-model="myprofile.Worktime_from" disabled >
+      </label>
+      <label class="item item-input" id="page20-input" ng-show="gettype()" >
+        <span class="input-label">  ساعات العمل الي:</span>
+        <input type="text" placeholder="غير متاح" id="page202-input" ng-model="myprofile.Worktime_to" disabled >
+      </label>
+      </label>
+        <label class="item item-input" id="page20-input" ng-show="gettype()" >
+        <span class="input-label"> تاريخ انتهاء الأشتراك :</span>
+        <input type="text" placeholder="" id="page202-input" ng-model="expire.expire_from" disabled >
+      </label>
+      <label class="item item-input" id="page20-input" ng-show="gettype()" >
+        <span class="input-label"> تاريخ انتهاء الأشتراك :</span>
+        <input type="text" placeholder="" id="page202-input" ng-model="expire.expire_to" disabled >
       </label>
         
      </div>

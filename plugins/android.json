@@ -49,6 +49,9 @@
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicNativeTransitions"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
         }
     },
     "dependent_plugins": {
