@@ -1,12 +1,26 @@
 <ion-view  title="عرض المنتجات" id="page21" style="font-family: 'El Messiri', sans-serif;">
-  <ion-content padding="true" class="has-header" style="background-color: #eee7ee" >
-    <ion-list id="page17-list12" dir="auto" >
-     <ion-item class="item-thumbnail-right item-text-wrap" id="page17-list-item"  style="background-color:#f5f5f5 " ng-click="navigate(product.id)" ng-repeat="product in products" >
-        <img ng-src="http://217.182.113.163/~setalbeet/upload/{{product.photo}}" style="width:70px;height:70px" >
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="myGoBack()" >
+    <img src="img/bk.png" style="height:30px" >
+    </button>
+    </ion-nav-buttons>
+  <ion-content padding="true" class="has-header" style="background-color: #eee7ee" dir="rtl"  >
+    <ion-refresher on-refresh="doRefresh()">
+      </ion-refresher>
+      <form>
+  <input type="text" name="search" ng-model="search.text" placeholder="بحث...">
+</form>
+        <div class="spacer" style="height:10px;"></div>
+    <ion-list id="page17-list12"  >
+     <ion-item class="item-thumbnail-right" id="page17-list-item"  style="background-color:#f5f5f5 " ng-click="navigate(product.id)" ng-repeat="product in products|filter:search.text" >
+        <img ng-if="product.photo" ng-src="http://s-baet.com/cp/upload/{{product.photo}}" style="width:70px;height:70px" >
         <h2 class="story-title">{{product.title}}</h2>
-        <p>{{product.content}}</p>
+        <p>وصف المنتج : {{product.content}}</p>
         <p>السعر :{{product.price}}</p>
+       <p >بتاريخ : {{product.updated_at}}</p> 
       </ion-item>
     </ion-list>
+  <h1 ng-show="leng()" style="margin-top: 100px;margin-right:20px;" >عفوا لا يوجد منتجات</h1>
+        <div class="spacer" style="height:40px;"></div>
   </ion-content>
 </ion-view>

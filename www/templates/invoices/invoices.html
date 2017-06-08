@@ -1,0 +1,34 @@
+<ion-view title="صفحة الفواتير" id="page9" style="font-family: 'El Messiri', sans-serif;">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="myGoBack()">
+    <img src="img/bk.png" style="height:30px" >
+    </button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header" style="background-color: #eee7ee;" dir="rtl">
+    <ion-refresher on-refresh="doRefresh()">
+    </ion-refresher>
+    <form>
+      <input type="text" name="search" ng-model="search.text" placeholder="بحث...">
+    </form>
+    <div class="spacer" style="height: 10px"></div>
+    <ion-list id="page17-list12" dir="auto">
+      <ion-item class="item-thumbnail-right" id="page17-list-item" ng-repeat="invoice in invoices|filter:search.text">
+        <img ng-if="invoice.post_id.photo" ng-src="http://s-baet.com/cp/upload/{{invoice.post_id.photo}}" />
+        <span class="badge badge-assertive header-badge" style="margin-top:-15px;margin-right:-25px;" ng-if="invoice.seen==0">.</span>
+        <img ng-src="http://s-baet.com/cp/upload/{{invoice.user_id.logo}}" style="height:40px;margin-right:180px;border-radius: 100px">
+        <p ng-click="invoiceaction(invoice.id)" ng-if="typee">اسم العميل : {{invoice.user_id.name}} </p>
+        <p ng-click="invoiceaction(invoice.id)" ng-if="typee">ملاحظات العميل : {{invoice.comment}} </p>
+        <p ng-click="invoiceaction(invoice.id)" ng-if="!typee">اسم المتجر : {{invoice.store_id.name}} </p>
+        <p ng-click="invoiceaction(invoice.id)"> اسم المنتج : {{invoice.post_id.title}} </p>
+        <p ng-click="invoiceaction(invoice.id)">{{invoice.date_receipt}}</p>
+        <p ng-click="invoiceaction(invoice.id)">{{invoice.time_receipt}}</p>
+        <p ng-click="invoiceaction(invoice.id)"> الحاله : {{invoice.title_status}} </p>
+
+        <ion-option-button class="button-stabel " dir="rtl" ng-click="gotouserprofile(invoice.user_id.id)" ng-if="typee">اذهب لصفحه العميل</ion-option-button>
+      </ion-item>
+    </ion-list>
+    <h2 ng-show="leng()">لا يوجد فواتير</h2>
+    <h2 ng-show="leng1()">لا يوجد طلبات</h2>
+    <div class="spacer" style="height:30px"></div>
+  </ion-content>
+</ion-view>

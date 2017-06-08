@@ -1,20 +1,24 @@
-<ion-view title="الرئيسية" hide-nav-bar="true"  >
-  <ion-content padding="true"  class=" manual-remove-top-padding" style="background-color:lightgrey" >
-
-    <ion-slides enable-side-menu-drag="" options="{'loop': true}" slider="slider1" slide-interval="2000" delegate-handle="slider1" id="page17-slider1" style="width:calc(100% + 20px);height:200px;margin-left:-10px;margin-right: -10px;">
-      <ion-slide-page id="page17-slide24" ng-repeat="store in stores" >
-        <a ng-click="navigate(store.id)" > <img ng-src="http://217.182.113.163/~setalbeet/upload/{{store.user.logo}}" style="width:calc(100%);height:100%;" > </a>
+<ion-view hide-nav-bar="true">
+  <ion-content dir="rtl" has-header="false">
+    <ion-slides options="{autoplay:3000,speed:1000}" slider="" does-continue="true" ng-if="stores.length" style="width:calc(100% );height:200px;">
+      <ion-slide-page ng-repeat="store in stores">
+        <a ng-click="navigate(store.store_id)"> <img ng-src="http://s-baet.com/cp/upload/{{store.user.logo}}" style="width:calc(100%);height:100%;" > </a>
       </ion-slide-page>
-     </ion-slides>
-    <div class="spacer" style="width: 300px; height: 10px;"></div>
-    <ion-list id="page17-list12" dir="auto" >
-      <ion-item class="item-thumbnail-right" id="page17-list-item"  ng-click="navigate(store.id)" ng-repeat="store in stores">
-        <img  ng-src="http://217.182.113.163/~setalbeet/upload/{{store.user.logo}}" />
-        <h2>{{store.user.name}}</h2>
-        <p>{{store.user.delivery}}</p>
-        <p>{{store.user.mobile}}</p>
-        <p>{{store.user.email}}</p>
+    </ion-slides>
+
+    <div class="spacer" style=" height: 10px;"></div>
+    <ion-refresher on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-thumbnail-right" id="page17-list-item" ng-repeat="store in stores" style="background-color:#eee7ee">
+        <img ng-click="navigate(store.store_id)" ng-src="http://s-baet.com/cp/upload/{{store.user.logo}}" />
+        <p ng-click="navigate(store.store_id)">متجر {{store.user.name}}</p>
+        <p ng-click="navigate(store.store_id)">{{store.user.area.name}}</p>
+        <p ng-click="navigate(store.store_id)" ng-if="store.user.worktime_from&&store.user.worktime_to"> من : {{store.user.worktime_from}} صباحاً حتي : {{store.user.worktime_to}} مساءً </p>
+        <ion-option-button class="button-light" ng-click="gotostoreprofile(store.store_id)"><img src="img/6.png"></ion-option-button>
+        <ion-option-button class="button-stabel" ng-click="subscribestore(store.store_id)" ng-if="user"><img src="img/13.png"></ion-option-button>
       </ion-item>
     </ion-list>
+    <div class="spacer" style="height: 40px"></div>
   </ion-content>
 </ion-view>

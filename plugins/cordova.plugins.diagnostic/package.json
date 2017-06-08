@@ -1,0 +1,107 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova.plugins.diagnostic",
+        "scope": null,
+        "escapedName": "cordova.plugins.diagnostic",
+        "name": "cordova.plugins.diagnostic",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "D:\\ClientApp\\node_modules"
+    ]
+  ],
+  "_from": "cordova.plugins.diagnostic@latest",
+  "_id": "cordova.plugins.diagnostic@3.6.2",
+  "_inCache": true,
+  "_location": "/cordova.plugins.diagnostic",
+  "_nodeVersion": "7.10.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/cordova.plugins.diagnostic-3.6.2.tgz_1494595987800_0.05591181921772659"
+  },
+  "_npmUser": {
+    "name": "davealden",
+    "email": "dave@workingedge.co.uk"
+  },
+  "_npmVersion": "4.2.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova.plugins.diagnostic",
+    "scope": null,
+    "escapedName": "cordova.plugins.diagnostic",
+    "name": "cordova.plugins.diagnostic",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova.plugins.diagnostic/-/cordova.plugins.diagnostic-3.6.2.tgz",
+  "_shasum": "6b8e830b8ebddb27e00c1f33262928071c39fc52",
+  "_shrinkwrap": null,
+  "_spec": "cordova.plugins.diagnostic",
+  "_where": "D:\\ClientApp\\node_modules",
+  "author": {
+    "name": "Dave Alden"
+  },
+  "bugs": {
+    "url": "https://github.com/dpa99c/cordova-diagnostic-plugin/issues"
+  },
+  "cordova": {
+    "id": "cordova.plugins.diagnostic",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "cordova_name": "Diagnostic",
+  "dependencies": {},
+  "description": "Cordova/Phonegap plugin to check the state of Location/WiFi/Camera/Bluetooth device settings.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "6b8e830b8ebddb27e00c1f33262928071c39fc52",
+    "tarball": "https://registry.npmjs.org/cordova.plugins.diagnostic/-/cordova.plugins.diagnostic-3.6.2.tgz"
+  },
+  "gitHead": "953633ce4f749971dcbdf761647675320017ef37",
+  "homepage": "https://github.com/dpa99c/cordova-diagnostic-plugin#readme",
+  "issue": "https://github.com/dpa99c/cordova-diagnostic-plugin/issues",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova",
+    "android",
+    "ios",
+    "windows",
+    "phonegap",
+    "diagnostic",
+    "wifi",
+    "location",
+    "gps",
+    "camera",
+    "bluetooth",
+    "settings"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "davealden",
+      "email": "dave@workingedge.co.uk"
+    }
+  ],
+  "name": "cordova.plugins.diagnostic",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpa99c/cordova-diagnostic-plugin.git"
+  },
+  "scripts": {},
+  "types": "./cordova.plugins.diagnostic.d.ts",
+  "version": "3.6.2"
+}

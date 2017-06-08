@@ -1,0 +1,24 @@
+<ion-view  title="العروض" id="page21" style="font-family: 'El Messiri', sans-serif;">
+  <ion-content padding="true" class="has-header" style="background-color: #eee7ee"  >
+    <ion-refresher on-refresh="doRefresh()">
+      </ion-refresher>
+      
+      <form>
+  <input type="text" name="search" ng-model="search.text" placeholder="بحث...">
+</form>
+    <div class="spacer" style="height: 10px"></div>
+
+    <ion-list id="page17-list12" dir="rtl" >
+     <ion-item class="item-thumbnail-right" id="page17-list-item"  style="background-color:#f5f5f5 " ng-click="navigate(offer.id)" ng-repeat="offer in offers|filter:search.text" >
+        <img ng-src="http://s-baet.com/cp/upload/{{offer.photo}}" style="width:70px;height:70px" >
+        <h2 class="story-title">{{offer.title}}</h2>
+        <p>{{offer.content}}</p>
+        <p>السعر :{{offer.price}}</p>
+        <p>متجر : {{offer.user_id.name}}</p>
+        <p>بتاريخ : {{offer.updated_at}}</p>
+      </ion-item>
+    </ion-list>
+  <h1 ng-show="leng()" style="margin-top: 100px;margin-right:20px;" >عفوا لا يوجد منتجات</h1>
+  <div class="spacer" style="height:40px"></div>
+  </ion-content>
+</ion-view>

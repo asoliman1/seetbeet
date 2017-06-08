@@ -1,13 +1,22 @@
-<ion-view title="المتاجر"  style="font-family: 'El Messiri', sans-serif;">
-  <ion-content padding="true" class="has-header" style="background-color: #eee7ee" >
-     <ion-list id="page17-list12" dir="auto" >
-      <ion-item class="item-thumbnail-right" id="page15-list-item"   ng-click="navigate(store.id)" ng-repeat="store in stores">
-        <img ng-src="http://217.182.113.163/~setalbeet/upload/{{store.logo}}"/>
-        <h2>{{store.name}}</h2>
-        <p>{{store.mobile}}</p>
-        <p>{{store.delivery}}</p>
-        <p>{{store.email}}</p>
-      </ion-item>
+<ion-view title="المتاجر" style="font-family: 'El Messiri', sans-serif;">
+  <ion-content class="has-header" style="background-color: #eee7ee" dir="rtl">
+    <ion-refresher on-refresh="doRefresh()">
+    </ion-refresher>
+    <div class="spacer" style="height: 10px"></div>
+    <form>
+      <input type="text" name="search" ng-model="search.text" placeholder="بحث...">
+    </form>
+    <div class="spacer" style="height: 10px"></div>
+    <ion-list id="page17-list12">
+      <ion-item class="item-thumbnail-right" id="page15-list-item" ng-repeat="store in stores|filter:search.text" style="background: white">
+        <img ng-click="navigate(store.id)" ng-if="store.logo!=null" ng-src="http://s-baet.com/cp/upload/{{store.logo}}">
+        <img ng-click="navigate(store.id)" ng-if="store.logo==null" src="img/LOOOGO.png">
+        <p ng-click="navigate(store.id)">متجر : {{store.name}}</p>
+        <p ng-click="navigate(store.id)" ng-if="store.mobile">الهاتف : {{store.mobile}}</p>
+        <p ng-click="navigate(store.id)" ng-if="store.address">العنوان : {{store.address}}</p>
+        <ion-option-button class="button-stabel" ng-click="subscribestore(store.id)" ng-if="user"><img src="img/13.png"></ion-option-button>
+        <ion-option-button class="button-light" ng-click="gotostoreprofile(store.id)"><img src="img/6.png"></ion-option-button>
     </ion-list>
+    <div class="spacer" style="height: 40px"></div>
   </ion-content>
 </ion-view>

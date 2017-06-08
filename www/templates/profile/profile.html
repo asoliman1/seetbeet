@@ -1,25 +1,46 @@
-<ion-view title={{myprofile.name}} id="page22" >
-  <ion-content padding="true" class="has-header" style="background-color: #eee7ee;">
-     
-     <div id="page19-form11" class="list"   >
-        <img ng-src="http://217.182.113.163/~setalbeet/upload/{{myprofile.logo}}"  style="margin:50px;margin-right:100px;width:40%;">
-      <label class="item item-input" id="page20-input" >
+<ion-view view-title={{myprofile.name}} id="page22">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="myGoBack()">
+    <img src="img/bk.png" style="height:30px" >
+    </button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header" style="background-color: #eee7ee;" dir="rtl">
+    <div id="page19-form11" class="list">
+      <img ng-if="myprofile.logo!=null" ng-src="http://s-baet.com/cp/upload/{{myprofile.logo}}" ng-click="showImage(myprofile.logo)"
+        style="margin:50px;margin-right:100px;width:40%;border-radius: 50px">
+      <div id="map-canvas1" ng-show="location"></div>
+      <label class="item item-input" id="page20-input">
         <span class="input-label">الأسم:</span>
-        <input type="text" placeholder="" ng-model="myprofile.name" id="page202-input" disabled>
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.name" id="page202-input" disabled>
       </label>
       <label class="item item-input" id="page20-input">
-        <span class="input-label"> البلد :</span>
-        <input type="text" placeholder="" ng-model="mycountry" id="page202-input" disabled >
+        <span class="input-label"> رقم الجوال:</span>
+        <input type="text" placeholder="غير متاح"  ng-model="myprofile.mobile" id="page202-input" disabled  >
       </label>
-       <label class="item item-input" id="page20-input">
+
+      <label class="item item-input" id="page20-input">
+        <span class="input-label"> رقم الجوال اخر :</span>
+        <input type="text" placeholder="غير متاح"  ng-model="myprofile.other_mobile" id="page202-input" disabled  >
+      </label>
+
+      <label class="item item-input" id="page20-input">
+        <span class="input-label"> رقم الهاتف :</span>
+        <input type="text" placeholder="غير متاح"  ng-model="myprofile.phone" id="page202-input"  disabled >
+      </label>
+
+      <label class="item item-input" id="page20-input">
         <span class="input-label"> المنطقه :</span>
-        <input type="text" placeholder="غير متاح" ng-model="myarea" id="page202-input"  disabled >
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.area.name" id="page202-input"  disabled >
       </label>
-       <label class="item item-input" id="page20-input">
+      <label class="item item-input" id="page20-input">
         <span class="input-label"> المدينه :</span>
-        <input type="text" placeholder="غير متاح" ng-model="mycity" id="page202-input"  disabled >
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.city.name" id="page202-input"  disabled >
       </label>
-       <label class="item item-input" id="page20-input">
+      <label class="item item-input" id="page20-input">
+        <span class="input-label">العنوان:</span>
+        <input type="text" placeholder="غير متاح"   ng-model="myprofile.address" id="page202-input" disabled >
+      </label>
+      <label class="item item-input" id="page20-input">
         <span class="input-label"> الواتس اب :</span>
         <input type="text" placeholder="غير متاح" ng-model="myprofile.whatsapp" id="page202-input"  disabled >
       </label>
@@ -27,7 +48,7 @@
         <span class="input-label"> الفيس بوك :</span>
         <input type="text" placeholder="" ng-model="myprofile.facebook" id="page202-input" disabled >
       </label>
-     
+
       <label class="item item-input" id="page20-input">
         <span class="input-label"> جوجل بلس :</span>
         <input type="text" placeholder="غير متاح" ng-model="myprofile.google_plus" id="page202-input" disabled >
@@ -37,37 +58,44 @@
         <input type="text" placeholder="غير متاح" ng-model="myprofile.instagram" id="page202-input" disabled >
       </label>
 
-        <label class="item item-input" id="page20-input" ng-show="gettype()"  >
-        <span class="input-label"> وصف المتجر :</span>
-        <input type="text" placeholder="" id="page202-input" disabled >
-      </label>
-        <label class="item item-input" id="page20-input">
-        <span class="input-label"> البريد الأليكتروني :</span>
-        <input type="text" placeholder="" ng-model="myprofile.email" id="page202-input" id="page202-input" disabled >
-      </label>
-        <label class="item item-input" id="page20-input" ng-show="gettype()"  >
-        <span class="input-label"> طرق التوصيل :</span>
-        <input type="text" placeholder="" ng-model="myprofile.delivery" id="page202-input" disabled >
-      </label>
-        <label class="item item-input" id="page20-input" ng-show="gettype()" >
-        <span class="input-label">  ساعات العمل من:</span>
-        <input type="text" placeholder="غير متاح" id="page202-input" ng-model="myprofile.Worktime_from" disabled >
-      </label>
-      <label class="item item-input" id="page20-input" ng-show="gettype()" >
-        <span class="input-label">  ساعات العمل الي:</span>
-        <input type="text" placeholder="غير متاح" id="page202-input" ng-model="myprofile.Worktime_to" disabled >
-      </label>
-      </label>
-        <label class="item item-input" id="page20-input" ng-show="gettype()" >
-        <span class="input-label"> تاريخ انتهاء الأشتراك :</span>
-        <input type="text" placeholder="" id="page202-input" ng-model="expire.expire_from" disabled >
-      </label>
-      <label class="item item-input" id="page20-input" ng-show="gettype()" >
-        <span class="input-label"> تاريخ انتهاء الأشتراك :</span>
-        <input type="text" placeholder="" id="page202-input" ng-model="expire.expire_to" disabled >
-      </label>
-        
-     </div>
 
+      <label class="item item-input" id="page20-input">
+        <span class="input-label"> البريد الأليكتروني :</span>
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.email" id="page202-input" id="page202-input" disabled >
+      </label>
+      <label class="item item-input" id="page20-input" ng-show="gettype()">
+        <span class="input-label"> طرق التوصيل :</span>
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.delivery" id="page202-input" disabled >
+      </label>
+      <label class="item item-input" id="page20-input" ng-show="gettype()">
+        <span class="input-label">  ساعات العمل من:</span>
+        <input type="text" placeholder="غير متاح" id="page202-input" ng-model="myprofile.worktime_from" disabled >
+        <span class="input-label">صباحاً</span>        
+      </label>
+      <label class="item item-input" id="page20-input" ng-show="gettype()">
+        <span class="input-label">  ساعات العمل الي:</span>
+        <input type="text" placeholder="غير متاح" id="page202-input" ng-model="myprofile.worktime_to" disabled >
+        <span class="input-label">مساءً</span>                
+      </label>
+      <label class="item item-input" id="page20-input" ng-show="gettype()">
+        <span class="input-label"> تاريخ بدأ الأشتراك :</span>
+        <input type="text" placeholder="غير متاح" id="page202-input" ng-model="expire.expire_from" disabled >
+      </label>
+      <label class="item item-input" id="page20-input" ng-show="gettype()">
+        <span class="input-label"> تاريخ انتهاء الأشتراك :</span>
+        <input type="text" placeholder="غير متاح" id="page202-input" ng-model="expire.expire_to" disabled >
+      </label>
+
+    </div>
+    <div class="spacer" style="height:30px">
+    </div>
+
+    <script id="image-modal.html" type="text/ng-template">
+      <div class="modal image-modal transparent" ng-click="closeModal()">
+        <ion-pane class="transparent">
+          <img ng-src="{{imageSrc}}" class="fullscreen-image" />
+        </ion-pane>
+      </div>
+    </script>
   </ion-content>
 </ion-view>

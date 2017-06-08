@@ -1,0 +1,22 @@
+<ion-view title="حالة الفواتير" id="page9" style="font-family: 'El Messiri', sans-serif;">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="myGoBack()">
+    <img src="img/bk.png" style="height:30px" >
+    </button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header" style="background-color: #eee7ee;font-weight: bold" dir="rtl">
+    <h2> اختر حالة المنتج </h2>
+    <label class="item item-input item-select" style="height:50px;margin:10px;">
+    <select ng-model="status.data" >
+      <option ng-value="'refused'" >بالأنتظار</option>                        
+      <option ng-value="'refused'" >مرفوض</option>
+      <option ng-value="'refused'" >تمت الموافقه علي الطلب</option>
+      <option ng-value="'refused'" >تم تسليم الطلب</option>
+    </select>
+  </label>
+    <a class="btn" ng-click="save()"><i style="margin-right:15px;"><img src="img/sub.png" style="height:25px;margin-top:10px;"></i>
+ <p style="margin-right:12px;"> تنفيذ </p>
+     </a>
+    <div class="spacer" style="height:30px"></div>
+  </ion-content>
+</ion-view>

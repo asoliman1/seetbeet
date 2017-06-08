@@ -1,5 +1,10 @@
 <ion-view title="اضافة منتج"  style="font-family: 'El Messiri', sans-serif;">
-  <ion-content padding="true" class="has-header" style="background-color: #eee7ee" >
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="myGoBack()" >
+    <img src="img/bk.png" style="height:30px" >
+    </button>
+    </ion-nav-buttons>
+  <ion-content padding="true" class="has-header" style="background-color: #eee7ee" dir="rtl" >
 
 <form name="addproduct">
 
@@ -15,72 +20,64 @@
         <input type="number" placeholder="" ng-model="product.price" >
       </label>
 
-      <label class="item item-input item-select"  style="height:50px;margin:10px;" >
-    <select ng-model="product.state" >
-      <option value="" selected> اختر البلد </option>
-      <option ng-repeat="state in states" value="{{state.id}}" >{{state.name}}</option>
-    </select>
-    </label>
 
   <label class="item item-input item-select"  style="height:50px;margin:10px;"  >
-    <select ng-model="product.areaid" >
-      <option  value=""  selected >اختر المنطقة  </option>
-      <option ng-repeat="area in areas" value="{{area.id}}" >{{area.name}}</option>
+    <select ng-model="product.areaid" ng-change="selectcountry()" >
+      <option  value=""   selected >اختر المنطقة  </option>
+      <option ng-repeat="area in areas" ng-value="area.id" >{{area.name}}</option>
     </select>
   </label>
 
 <label class="item item-input item-select" style="height:50px;margin:10px;">
       <select  ng-model="product.cityid" >
       <option value="" selected>اختر المدينه </option>
-      <option ng-repeat="area in areas" value="{{area.city[0].id}}" >{{area.city[0].name}}</option>
+      <option ng-repeat="country in countrys" ng-value="country.id" >{{country.name}}</option>
     </select>
   </label>
 
-  <label class="item item-input item-select" style="height:50px;margin:10px;" >
-    <select    ng-model="product.posttype" >
-      <option value="" selected>اختر نوع المنتج </option>
-      <option  value="offer" >عرض</option>
-      <option value="order" >طلب</option>
-    </select>
-  </label>
-
+  
+        <ion-checkbox style="text-align: right;"  ng-model="product.post_type" dir="ltr" >عرض</ion-checkbox>
+      
+        
   <label class="item item-input item-select" style="height:50px;margin:10px;">
-    <select ng-model="product.departmentid" ng-change="selectsubdepartment()" >
+    <select ng-model="product.departmentid" ng-change="selectsubdepartment()"  >
       <option value="" selected>القسم الرئيسي</option>
-      <option  ng-repeat="department in departments" value="{{department.id}}" >{{department.title}}</option>
+      <option  ng-repeat="department in departments" ng-value="department.id"  >{{department.title}}</option>
     </select>
   </label>
 
   <label class="item item-input item-select" style="height:50px;margin:10px;" >
       <select ng-model="product.subdepartment"  >
       <option value="" selected>القسم الفرعي:</option>
-      <option  ng-repeat="subdepartment in subdepartments" value="{{subdepartment.id}}" >{{subdepartment.title}}</option>
+      <option  ng-repeat="subdepartment in subdepartments" ng-value="subdepartment.id"  >{{subdepartment.title}}</option>
     </select>
   </label>
+  
 <div class="row">
   <div class="col"style="color:black;margin-right:20px;">
-     <a class="btn1" ng-click="addlogo()"><i><img src="img/shape126.png" style="height:25px;margin-top:18px;margin-right:11px;"></i>
+     <a class="btn1" ng-click="addpic(1)"><i><img src="img/shape126.png" style="height:25px;margin-top:18px;margin-right:11px;"></i>
      </a>
       <p style="margin-right:10px;" > اضافة صورة رئيسيه </p>         
   </div>
   <div class="col" style="color:black">
-     <a class="btn2" ng-click="addpic()"><i><img src="img/shape126.png" style="height:25px;margin-top:18px;margin-right:11px;"></i>
+     <a class="btn2" ng-click="addpic(2)"><i><img src="img/shape126.png" style="height:25px;margin-top:18px;margin-right:11px;"></i>
      </a>
   اضافه صور اخري للمنتج     
   </div>
 </div>
 
-
-     <label class="item item-input"style="margin:10px;background-color:#f6f2f6"  >
-        <span class="input-label"> وصف المنتج : <input type="text" placeholder="" ng-model="product.content" >
-        </span>
-      </label>
+<label class="item item-input"   id="contactuspage" style="margin:10px;background-color:#f6f2f6" >
+    <span class="input-label2" style="margin-right: 10px;">وصف النتج :
+      <textarea rows="5" cols="600" ng-model="product.content" ></textarea>
+    </span>
+  </label>
+     
       
 
      <a class="btn" ng-click="save()" ><i style="margin-right:15px;"><img src="img/sub.png" style="height:25px;margin-top:10px;"></i>
  <p style="margin-right:12px;"> تنفيذ </p>
      </a>
-
 </form>
+<div class="spacer" style="height:50px;" ></div>
   </ion-content>
 </ion-view>

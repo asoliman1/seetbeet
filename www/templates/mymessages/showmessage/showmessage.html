@@ -1,6 +1,36 @@
 <ion-view title="الرسائل" id="page14" style="font-family: 'El Messiri', sans-serif;">
-  <ion-content padding="true" class="has-header" style="background-color: #eee7ee" >
-        <h2 style="color:#ebb0d3">رساله جديده من : {{mymessage.from_user.name}}</h2>
-        <p>{{mymessage.title}}</p>
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="myGoBack()">
+    <img src="img/bk.png" style="height:30px" >
+    </button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header" style="background-color: #eee7ee" dir="rtl">
+    <ion-refresher on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list id="page17-list12" dir="auto">
+      <ion-item class="item-icon-right item-text-wrap" id="page17-list-item">
+        <img src="img/mail.png" style="height:20px;margin-left:20px" />
+        <h2 style="color:#ebb0d3">رساله من : {{mymessage.from_user.name}}</h2>
+        <p></p>
+        <b>  بعنوان : {{mymessage.title}}   </b>
+        <p>{{mymessage.message}}</p>
+      </ion-item>
+      <ion-item class="item-icon-right item-text-wrap" ng-repeat="replay in replays" style="margin-bottom: 5px">
+        <p> {{replay.user_id.name}} : {{replay.message}} </p>
+        <p dir="ltr">{{replay.updated_at}}</p>
+        <ion-option-button class="button-assertive" ng-click="deletereplay(replay.id,replay.msg_id)">حذف</ion-option-button>
+      </ion-item>
+      <form name="messageform" novalidate>
+        <label class="item item-input item-text-wrap" style="background-color: white;margin: 10px;" id="contactuspage">
+    <span class="input-label2" style="margin-right: 10px;">محتوي الرساله :
+      <textarea rows="3" cols="600" ng-model="message.reply" required ></textarea>
+    </span>
+  </label>
+      </form>
+    </ion-list>
+    <a id="login0-button5" class="button button-stable  button-block" ng-click="send()" ng-disabled="messageform.$invalid">
+      <img style="height:20px;width:20px; " src="img/23.png"/>
+      ارسال  
+      </a>
   </ion-content>
 </ion-view>

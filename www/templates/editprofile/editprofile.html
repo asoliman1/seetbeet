@@ -1,80 +1,113 @@
-<ion-view title="تعديل بيناتي"  style="font-family: 'El Messiri', sans-serif;">
-  <ion-content  padding="true" style="background: url(img/485.png) no-repeat center;background-size:cover;background-position: center" class="has-header" >
-  <img src="img/LOOOGO.png" style="margin-top:50px;width:60%;margin-right: 70px;">
-  <a  ng-click="setImage()"  > <img ng-src="http://217.182.113.163/~setalbeet/upload/{{myprofile.logo}}" alt="Avatar" style="margin-top:10px;width:40%;margin-right: 90px;"/></a>
-    <form id="page19-form11" name="form" class="list" >
+<ion-view title="تعديل بيناتي" style="font-family: 'El Messiri', sans-serif;">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="myGoBack()">
+    <img src="img/bk.png" style="height:30px" >
+    </button>
+  </ion-nav-buttons>
+  <ion-content padding="true" style="background: url(img/485.png) no-repeat center;background-size:cover;background-position: center"
+    class="has-header" dir="rtl">
+    <img src="img/LOOOGO.png" style="margin-top:50px;width:60%;margin-right: 70px;">
+    <a ng-click="showImage(myprofile.logo)"> <img ng-src="http://s-baet.com/cp/upload/{{myprofile.logo}}" alt="Avatar" style="margin-top:10px;width:40%;margin-right: 90px;border-radius: 50px"/></a>
+    <div class="spacer" style="height:20px;"></div>
+    <a class="button button-icon icon ion-plus-circled" ng-click="setImage()" style="margin-right:140px;"></a>
+    <form id="page19-form11" name="form" class="list">
       <label class="item item-input" id="page202-input">
         <span class="input-label">الأسم:</span>
-        <input type="text" placeholder=""   ng-model="myprofile.name"  name="name" required >
+        <input type="text" placeholder="غير متاح"   ng-model="myprofile.name"    >
       </label>
-      
-      <label class="item item-input" id="page202-input" >
-        <span class="input-label"> رقم الجوال:</span>
-        <input type="text" placeholder=""  ng-model="myprofile.mobile" name="mobile" required >
-      </label>
-      
+
       <label class="item item-input" id="page202-input">
-        <span class="input-label"> البلد :</span>
-        <input type="text" placeholder="" ng-model="mycountry"   >
+        <span class="input-label"> رقم الجوال:</span>
+        <input type="text" placeholder="غير متاح"  ng-model="myprofile.mobile"   >
       </label>
-       <label class="item item-input" id="page202-input">
-        <span class="input-label"> المنطقه :</span>
-        <input type="text" placeholder="غير متاح" ng-model="myarea"   >
+
+      <label class="item item-input" id="page202-input">
+        <span class="input-label"> رقم الجوال اخر :</span>
+        <input type="text" placeholder="غير متاح"  ng-model="myprofile.other_mobile"   >
       </label>
-       <label class="item item-input" id="page202-input">
-        <span class="input-label"> المدينه :</span>
-        <input type="text" placeholder="غير متاح" ng-model="mycity"   >
+
+      <label class="item item-input" id="page202-input">
+        <span class="input-label"> رقم الهاتف :</span>
+        <input type="text" placeholder="غير متاح"  ng-model="myprofile.phone"   >
       </label>
-       <label class="item item-input" id="page202-input">
+      <p style="color:black">اختر المنطقة :</p>
+      <label class="item item-input item-select" style="height:50px;margin:10px;" id="page202-input">
+    <select ng-model="myprofile.area" ng-change="selectcountry()" >
+      <option ng-repeat="area in areas" ng-value="area.id" >{{area.name}}</option>
+    </select>
+  </label>
+      <p style="color:black">اختر المدينه :</h2>
+        <label class="item item-input item-select" style="height:50px;margin:10px;" id="page202-input">
+      <select  ng-model="myprofile.city" >
+      <option ng-repeat="country in countrys" ng-value="country.id" >{{country.name}}</option>
+    </select>
+  </label>
+
+
+
+
+
+        <label class="item item-input" id="page202-input">
+        <span class="input-label">العنوان:</span>
+        <input type="text" placeholder="غير متاح"   ng-model="myprofile.address"  >
+      </label>
+
+        <label class="item item-input" id="page202-input">
         <span class="input-label"> الواتس اب :</span>
         <input type="text" placeholder="غير متاح" ng-model="myprofile.whatsapp"   >
       </label>
-      <label class="item item-input" id="page202-input">
+        <label class="item item-input" id="page202-input">
         <span class="input-label"> الفيس بوك :</span>
-        <input type="text" placeholder="" ng-model="myprofile.facebook"   >
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.facebook"   >
       </label>
-      
-      
-      <label class="item item-input" id="page202-input">
+
+
+        <label class="item item-input" id="page202-input">
         <span class="input-label"> جوجل بلس :</span>
         <input type="text" placeholder="غير متاح" ng-model="myprofile.google_plus"   >
       </label>
-      <label class="item item-input" id="page202-input">
+        <label class="item item-input" id="page202-input">
         <span class="input-label"> انستجرام :</span>
         <input type="text" placeholder="غير متاح" ng-model="myprofile.instagram"  >
       </label>
 
-        <label class="item item-input" id="page202-input"  >
-        <span class="input-label"> وصف المتجر :</span>
-        <input type="text" placeholder=""  >
-      </label>
         <label class="item item-input" id="page202-input">
         <span class="input-label"> البريد الأليكتروني :</span>
-        <input type="text" placeholder="" ng-model="myprofile.email"  name="email"   required >
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.email"     >
       </label>
-        <label class="item item-input" id="page202-input"  >
+        <label class="item item-input" id="page202-input" ng-show="type()">
         <span class="input-label"> طرق التوصيل :</span>
-        <input type="text" placeholder="" ng-model="myprofile.delivery"   >
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.delivery"   >
       </label>
-        <label class="item item-input" id="page202-input"  >
-        <span class="input-label">  ساعات العمل :</span>
-        <input type="text" placeholder=""   >
+        <label class="item item-input" id="page202-input" ng-show="type()">
+        <span class="input-label">  ساعات العمل من :</span>
+        <input type="text" placeholder="غير متاح" ng-model="myprofile.worktime_from"  >
+        <span class="input-label">صباحاً</span>
       </label>
-      <label class="item item-input" id="page202-input"  required >
-        <span class="input-label"> كلمه المرور :
-        </span>
-        <input type="password" placeholder=""   ng-model="myprofile.password"  name="password" required >
+
+        <label class="item item-input" id="page202-input" ng-show="type()">
+        <span class="input-label">  ساعات العمل الي :</span>
+        <input type="text" placeholder="غير متاح"  ng-model="myprofile.worktime_to"  >
+        <span class="input-label">مساءً</span>        
       </label>
-      <label class="item item-input" id="page202-input" >
-        <span class="input-label"> تأكيد المرور :
-        </span>
-        <input type="password" placeholder=""   ng-model="myprofile.password_confirmation" name="passwordconfirm" required >
+
+        <label class="item item-input" id="page202-input">
+        <span class="input-label">كلمه المرور :</span>
+        <input type="password" placeholder="لتغير كلمة المرور من فضللك ادخل كلمة مرور جديده"   ng-model="myprofile.password" >
       </label>
-      
-     <button id="page10-button9" class="button button-stable  button-block" type="submit" ng-click="update()">
+
+        <button id="page10-button9" class="button button-stable  button-block" type="submit" ng-click="update()">
         تعديل
         <img style="height:20px;width:20px;" src="img/18.png"/>
       </button>
     </form>
+    <div class="spacer" style="height: 30px"></div>
+    <script id="image-modal.html" type="text/ng-template">
+      <div class="modal image-modal transparent" ng-click="closeModal()">
+        <ion-pane class="transparent">
+          <img ng-src="{{imageSrc}}" class="fullscreen-image" />
+        </ion-pane>
+      </div>
+    </script>
   </ion-content>
 </ion-view>

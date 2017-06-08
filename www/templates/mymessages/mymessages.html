@@ -1,11 +1,28 @@
 <ion-view title="الرسائل" id="page14" style="font-family: 'El Messiri', sans-serif;">
-  <ion-content padding="true" class="has-header" style="background-color: #eee7ee" >
-    <ion-list id="page17-list12" dir="auto" >
-      <ion-item class="item-icon-right" id="page17-list-item"  ng-click="navigate(mymessage.id)" ng-repeat="mymessage in mymessages" >
-        <img  src="img/mail.png" style="height:20px;margin-left:20px"/>
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="myGoBack()">
+    <img src="img/bk.png" style="height:30px" >
+    </button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header" style="background-color: #eee7ee" dir="rtl">
+    <ion-refresher on-refresh="doRefresh()">
+    </ion-refresher>
+    <form>
+      <input type="text" name="search" ng-model="search.text" placeholder="بحث...">
+    </form>
+    <div class="spacer" style="height: 10px"></div>
+    <ion-list id="page17-list12">
+      <ion-item class="item-icon-right" id="page17-list-item" ng-click="navigate(mymessage.id)" ng-repeat="mymessage in mymessages|filter:search.text">
+        <img src="img/mail.png" style="height:20px;margin-left:20px" />
+        <span class="badge badge-assertive header-badge" style="margin-top:-10px" ng-if="mymessage.seen==0">.</span>
         <h2 style="color:#ebb0d3">رساله جديده من : {{mymessage.from_user.name}}</h2>
+        <img ng-src="http://s-baet.com/cp/upload/{{mymessage.from_user.logo}}" style="height:40px;margin-right:220px;border-radius: 100px">
         <p>{{mymessage.title}}</p>
+        <p dir="ltr">بتاريخ : {{mymessage.updated_at}}</p>
+        <ion-option-button class="button-assertive" ng-click="deletemessage(mymessage.id)">حذف</ion-option-button>
       </ion-item>
     </ion-list>
+    <h1 ng-show="leng()" style="margin-top: 100px;margin-right:20px;">لا يوجد رسائل</h1>
+    <div class="spacer" style="height:30px"></div>
   </ion-content>
 </ion-view>

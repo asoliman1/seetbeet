@@ -7,78 +7,61 @@
         "files": {}
     },
     "installed_plugins": {
-        "com.telerik.plugins.wkwebview": {
-            "WKWEBVIEW_SERVER_PORT": "12344",
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "cordova-plugin-3dtouch": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "cordova-plugin-apprate": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "cordova-plugin-caller": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "cordova-plugin-media-capture": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        "com.telerik.plugins.nativepagetransitions": {
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
         },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
         },
-        "com.telerik.plugins.nativepagetransitions": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
+        },
+        "cordova-plugin-image-picker": {
             "PACKAGE_NAME": "com.ionicNativeTransitions"
         },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ionicNativeTransitions"
         },
-        "cordova-plugin-file-transfer": {
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
+        },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
+        },
+        "onesignal-cordova-plugin": {
             "PACKAGE_NAME": "com.ionicNativeTransitions"
         }
     },
     "dependent_plugins": {
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "cordova-plugin-globalization": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
         },
         "cordova-plugin-webserver": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
-        },
-        "phonegap-plugin-push": {
-            "SENDER_ID": "85075801930",
-            "PACKAGE_NAME": "com.ionicframework.clientapp698015"
+            "PACKAGE_NAME": "com.ionicNativeTransitions"
         }
     }
 }

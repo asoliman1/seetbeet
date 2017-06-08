@@ -1,8 +1,15 @@
-<ion-view title="عنواني" id="page501" hide-nav-bar="true" style="font-family: 'El Messiri', sans-serif;">
-  <ion-content padding="true"  style="background-color: #eee7ee" >
-<div id="map-canvas" ></div>
-<button class="button button-block button-positive">
+<ion-view title="عنواني" id="page501" style="font-family: 'El Messiri', sans-serif;">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="myGoBack()">
+    <img src="img/bk.png" style="height:30px" >
+    </button>
+  </ion-nav-buttons>
+  <ion-content padding="true" style="background-color: #eee7ee" dir="rtl">
+    <div id="map-canvas"></div>
+    <div class="spacer" style="height:40px"></div>
+    <button class="button button-block button-positive" ng-click="savelocation()">
   احفظ عنواني
 </button>
+    <div class="spacer" style="height:40px"></div>
   </ion-content>
 </ion-view>

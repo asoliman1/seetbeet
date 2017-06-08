@@ -1,35 +1,54 @@
-<ion-view title="{{products.title}}" style="font-family: 'El Messiri', sans-serif;">
-  <ion-content padding="true" class="has-header" dir="auto" style="background-color: #eee7ee" >
-<div class="bar bar-header " style="background-color: #efd7e7;" >
-  <h1 class="title" style="text-align: left;color:#da6bad">قسم : {{products.department_id.title}}</h1>
-</div>
-<div class="spacer" style="height:35px"></div>
-<img style="width:calc(100% + 20px);height:100%;margin-left:-10px;margin-right: -10px;" ng-src="http://217.182.113.163/~setalbeet/upload/{{products.photo}}"/>
-<p5 style="color:black;margin:10px;font-size: large;border-bottom: 2px solid #f7abd8;">وصف المنتج</p5>
-<p5 style="color:black;background-color: rgba(255, 0, 102, 0.1)">{{products.content}}</p5>
-<div class="row">
-  <div class="col" style="margin-left:20px;border-bottom: 3px solid #f7abd8;">
-    <img ng-src="http://217.182.113.163/~setalbeet/upload/{{products.photo}}" style="width:99px;height:99px"/>
-  </div>
-   <div class="col" style="margin-left:20px;border-bottom: 3px solid #f7abd8;">
-    <img ng-src="http://217.182.113.163/~setalbeet/upload/{{products.photo}}" style="width:99px;height:99px"/>
-  </div>
-   <div class="col" style="border-bottom: 3px solid #f7abd8;">
-    <img ng-src="http://217.182.113.163/~setalbeet/upload/{{products.photo}}" style="width:95px;height:99px"/>
-  </div>
-</div>
-<div class="row" style="margin-top: 15px;">
-  <div class="col" style="width:100px" >
-    <button style="color:white;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="button button-stable  button-block"  >
+<ion-view view-title={{products.title}} style="font-family: 'El Messiri', sans-serif;">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="myGoBack()">
+    <img src="img/bk.png" style="height:30px" >
+    </button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header" dir="auto" style="background-color: #eee7ee">
+    <div class="bar bar-header " style="background-color: #efd7e7;">
+      <h1 class="title" style="text-align: right;color:#da6bad">قسم : {{products.department_id.title}}</h1>
+    </div>
+    <div class="spacer" style="height:35px"></div>
+    <img ng-if="products.photo" style="width:calc(100% + 20px);height:50%;margin-left:-10px;margin-right: -10px;" ng-src="http://s-baet.com/cp/upload/{{products.photo}}"
+    />
+    <div class="spacer" style="height:15px"></div>
+    <p style="color:black;margin-bottom:10px;font-size: large;border-bottom: 1px solid #f7abd8;">وصف المنتج</p>
+    <p style="color:black">{{products.content}}</p>
+    <div class="row">
+      <div class="col" ng-repeat="pic in pics">
+        <img ng-src="http://s-baet.com/cp/upload/{{pic.path}}{{pic.file}}" ng-click="showImage(pic.path+pic.file)" style="height:99px"
+        />
+      </div>
+    </div>
+    <button style="background: #e08dbe;color:white;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="button   button-block"
+      ng-click="sendmessage()" ng-if="!notuser">
+      ارسال رسالة الي المتجر 
+      </button>
+    <label class="item item-input  " id="item" ng-if="user">
+          <span class="input-label">ملاحظات عند الأستلام : </span>
+          <input class="item item-text-wrap " style="font-size: 20px" type="text"  ng-model="invoice.comment" >
+        </label>
+    <div class="row" style="margin-bottom: 25px">
+      <div class="col" style="width:100px">
+        <button style="background: #e08dbe;color:white;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="button  button-block">
         السعر : {{products.price}} ريال
       </button>
-  </div>
-  <div class="col" style="width:100px">
-    <button  style="background-color: rgba(26, 255, 102,0.8);color:white;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" ng-click="navigate()" class="button   button-block" >
+      </div>
+      <div class="col" style="width:100px">
+        <button style="background-color: #00c853;color:white;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" ng-click="navigate()"
+          ng-if="user" class="button   button-block">
        <img style="height:20px;width:20px;" src="img/78.png"/>
         شراء المنتج 
       </button>
-  </div>
-</div>
+      </div>
+    </div>
+    <div class="spacer" style="height: 40px"></div>
+    <script id="image-modal.html" type="text/ng-template">
+      <div class="modal image-modal transparent" ng-click="closeModal()">
+        <ion-pane class="transparent">
+          <img ng-src="{{imageSrc}}" class="fullscreen-image" />
+        </ion-pane>
+      </div>
+    </script>
   </ion-content>
 </ion-view>

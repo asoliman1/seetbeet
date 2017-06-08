@@ -1,134 +1,114 @@
-<ion-view title="التسجيل" padding="true"  hide-nav-bar="true" style="font-family: 'El Messiri', sans-serif;">
-  <ion-content padding="true" style="background: url(img/a.png) no-repeat ;background-size:cover;"   >
+<ion-view title="التسجيل" padding="true" hide-nav-bar="true" style="font-family: 'El Messiri', sans-serif;">
+  <ion-content padding="true" style="background: url(img/a.png) no-repeat ;background-size:cover;" dir="rtl">
 
-    <div>
-      <img style="width:300px;height:200px;margin:10%" src="img/LOOOGO.png"/>
-    </div>
+    <img style="width:200px;height:150px;margin-right:70px;" src="img/LOOOGO.png" />
 
 
-    <div class="row">
+
+    <div class="row" style="margin-top:60px;">
       <div class="col">
         <label style="color: black; font-size: large; margin: 90px">
-          <input ng-model="customer" ng-change="client = false" type="checkbox"   >التاجر
+          <input ng-model="customer.type" ng-change="client.type = false" type="checkbox"  ng-true-value="'premium'" >التاجر
         </label>
       </div>
       <div class="col">
         <label style="color: black; font-size: large">
-          <input ng-model="client" ng-change="customer = false" type="checkbox"   >العميل
+          <input ng-model="client.type" ng-change="customer.type = false"  type="checkbox" ng-true-value="'user'"  >العميل
         </label>
       </div>
     </div>
 
 
-    <form ng-if="customer" name="customerform" novalidate >
-      <!--<div class="spacer" style="height: 60px;"></div>-->
-
+    <form ng-if="customer.type" name="customerform" novalidate>
       <div class="list">
-
+        <div ng-show="customerform.firstname.$error.required" style="color:red;padding:10px">من فضلك ادخل الاسم</div>
         <label class="item item-input " id="item">
           <span class="input-label">الأسم </span>
           <input style="font-size: 20px" type="text" placeholder="الأسم" ng-model="user.name" name="firstname" required >
         </label>
 
-        <label class="item item-input " id="item" ng-model="lastname" >
-          <span class="input-label">الأسم الاخير </span>
-          <input style="font-size: 20px" type="text" placeholder="الأسم الاخير :" />
-        </label>
-
+        <div ng-show="customerform.mobile.$error.required" style="color:red;">من فضلك ادخل رقم الجوال</div>
         <label class="item item-input " id="item">
-          <span class="input-label">اسم المتجر </span>
-          <input style="font-size: 20px" type="text" placeholder="اسم المتجر" ng-model="storename" name="storname" required >
-        </label>
-        <label class="item item-input " id="item">
+            <div ng-show="customerform.mobile.$error.required" style="color:red;padding:10px">*</div>        
           <span class="input-label">رقم الجوال</span>
           <input style="font-size: 20px" type="number" placeholder="رقم الجوال" ng-model="user.mobile"  name="mobile"  ng-minlength="10"  required >
         </label>
+
+        <div ng-show="customerform.email.$error.required" style="color:red;">من فضلك ادخل الأيميل</div>
         <label class="item item-input " id="item">
-          <span class="input-label">موقعي</span>
-          <input style="font-size: 20px" type="text" placeholder="موقعي" ng-model="location" name="location" required >
-        </label>
-        <label class="item item-input " id="item">
+            <div ng-show="customerform.email.$error.required" style="color:red;padding:10px">*</div>                  
           <span class="input-label">الأيميل</span>
           <input style="font-size: 20px" type="email" placeholder="الأيميل" ng-model="user.email" name="email" required >
         </label>
+        <div ng-show="customerform.password.$error.required" style="color:red;">من فضلك ادخل كلمة المرور</div>
         <label class="item item-input " id="item">
+            <div ng-show="customerform.password.$error.required" style="color:red;padding:10px">*</div>                  
           <span class="input-label">كلمة المرور</span>
           <input style="font-size: 20px" type="password" placeholder="كلمة المرور" ng-model="user.password"  name="password"  ng-minlength="6"    required >
         </label>
+        <div ng-show="customerform.confirmpassword.$error.required" style="color:red;"> من فضلك ادخل تأكيد كلمة المرور</div>
         <label class="item item-input " id="item">
+            <div ng-show="customerform.confirmpassword.$error.required" style="color:red;padding:10px">*</div>                  
           <span class="input-label">اعادة كلمة المرور</span>
           <input style="font-size: 20px;font-weight: 500" type="password" placeholder="اعادة كلمة المرور"  ng-model="user.password_confirm" name="confirmpassword" ng-minlength="6" required >
         </label>
-        <ion-checkbox style="text-align: left;" id="item" ng-model="filter" name="rules" required ><a class="item" ng-click="getrules()" >الموافقه علي الشروط و
-          الأحكام</a></ion-checkbox>
+        <div ng-hide="done" style="color:red;">لابد ان توافق علي الشروط و الأحكام</div>
+        <ion-checkbox style="text-align: left;" id="item" ng-model="filter.pink" name="rules" ng-click="getrules()" required>الشروط و اللأحكام</ion-checkbox>
       </div>
-       <div class="padding">
-            <div ng-show="customerform.password.$error.required" style="color:red;">* من فضلك ادخل كلمة المرور</div>
-            <div ng-show="customerform.passwordconfirm.$error.required" style="color:red;">*  من فضلك ادخل تأكيد كلمة المرور</div>
-            <div ng-show="customerform.email.$error.required" style="color:red;">* من فضلك ادخل الأيميل</div>
-            <div ng-show="customerform.firstname.$error.required" style="color:red;">* من فضلك ادخل الاسم</div>
-            <div ng-show="customerform.mobile.$error.required" style="color:red;">* من فضلك ادخل رقم الجوال</div>
-            <div ng-show="customerform.location.$error.required" style="color:red;">* من فضلك ادخل العنوان</div>
-            <div ng-show="customerform.storename.$error.required" style="color:red;">* من فضلك ادخل اسم المتجر</div>
-            <div ng-show="customerform.filter.$error.required" style="color:red;">* لابد ان توافق علي الشروط و الأحكام</div>
-        </div>
-      <button id="page10-button9" ng-click="signup()" class="button button-stable  button-block" ng-disabled="customerform.$invalid" >
+
+
+      <button id="page10-button9" ng-click="signup()" class="button button-stable  button-block">
         تسجيل
         <img style="height:20px;width:20px;" src="img/18.png"/>
       </button>
     </form>
 
-    
-      <form  ng-if="client" name="customerform" novalidate >
+
+    <form ng-if="client.type" name="customerform" novalidate>
       <!--<div class="spacer" style="height: 60px;"></div>-->
 
       <div class="list">
-
+        <div ng-show="customerform.firstname.$error.required" style="color:red;">من فضلك ادخل الاسم</div>
         <label class="item item-input " id="item">
+            <div ng-show="customerform.firstname.$error.required" style="color:red;padding:10px">*</div>
           <span class="input-label">الأسم </span>
           <input style="font-size: 20px" type="text" placeholder="الأسم" ng-model="user.name" name="firstname" required >
         </label>
 
-        <label class="item item-input " id="item" ng-model="lastname" >
-          <span class="input-label">الأسم الاخير </span>
-          <input style="font-size: 20px" type="text" placeholder="الأسم الاخير :" />
-        </label>
 
+        <div ng-show="customerform.mobile.$error.required" style="color:red;">من فضلك ادخل رقم الجوال</div>
         <label class="item item-input " id="item">
+            <div ng-show="customerform.mobile.$error.required" style="color:red;padding:10px">*</div>          
           <span class="input-label">رقم الجوال</span>
           <input style="font-size: 20px" type="number" placeholder="رقم الجوال" ng-model="user.mobile"  name="mobile" ng-minlength="10" ng-maxlength="10" required >
         </label>
+
+        <div ng-show="customerform.email.$error.required" style="color:red;"> من فضلك ادخل الأيميل</div>
         <label class="item item-input " id="item">
-          <span class="input-label">موقعي</span>
-          <input style="font-size: 20px" type="text" placeholder="موقعي" ng-model="location" name="location" required >
-        </label>
-        <label class="item item-input " id="item">
+            <div ng-show="customerform.email.$error.required" style="color:red;padding:10px">*</div>
+          
           <span class="input-label">الأيميل</span>
           <input style="font-size: 20px" type="email" placeholder="الأيميل" ng-model="user.email" name="email" required >
         </label>
+        <div ng-show="customerform.password.$error.required" style="color:red;"> من فضلك ادخل كلمة المرور</div>
         <label class="item item-input " id="item">
+          <div ng-show="customerform.password.$error.required" style="color:red;padding:10px">*</div>
           <span class="input-label">كلمة المرور</span>
           <input style="font-size: 20px" type="password" placeholder="كلمة المرور" ng-model="user.password"  name="password"  ng-minlength="6"    required >
         </label>
+        <div ng-show="customerform.confirmpassword.$error.required" style="color:red;"> من فضلك ادخل تأكيد كلمة المرور</div>
         <label class="item item-input " id="item">
+            <div ng-show="customerform.confirmpassword.$error.required" style="color:red;padding:10px">*</div>          
           <span class="input-label">اعادة كلمة المرور</span>
           <input style="font-size: 20px;font-weight: 500" type="password" placeholder="اعادة كلمة المرور"  ng-model="user.password_confirm" name="confirmpassword" ng-minlength="6" required >
         </label>
         <div>
-        <ion-checkbox style="text-align: left;" id="item" ng-model="filter" name="rules" required ><a  ng-click="getrules()" >الموافقه علي الشروط و
-          الأحكام</a></ion-checkbox>
+          <div ng-hide="done" style="color:red;">* لابد ان توافق علي الشروط و الأحكام</div>
+          <ion-checkbox style="text-align: left;" id="item" ng-model="filter" name="rules" ng-click="getrules()" required>الشروط و اللأحكام</ion-checkbox>
         </div>
       </div>
-       <div class="padding">
-            <div ng-show="customerform.password.$error.required" style="color:red;">* من فضلك ادخل كلمة المرور</div>
-            <div ng-show="customerform.passwordconfirm.$error.required" style="color:red;">*  من فضلك ادخل تأكيد كلمة المرور</div>
-            <div ng-show="customerform.email.$error.required" style="color:red;">* من فضلك ادخل الأيميل</div>
-            <div ng-show="customerform.firstname.$error.required" style="color:red;">* من فضلك ادخل الاسم</div>
-            <div ng-show="customerform.mobile.$error.required" style="color:red;">* من فضلك ادخل رقم الجوال</div>
-            <div ng-show="customerform.location.$error.required" style="color:red;">* من فضلك ادخل العنوان</div>
-            <div ng-show="customerform.filter.$error.required" style="color:red;">* لابد ان توافق علي الشروط و الأحكام</div>
-        </div>
-      <button id="page10-button9" ng-click="signup()" class="button button-stable  button-block" ng-disabled="customerform.$invalid" >
+
+      <button id="page10-button9" ng-click="signup()" class="button button-stable  button-block">
         تسجيل
         <img style="height:20px;width:20px;" src="img/18.png"/>
       </button>

@@ -1,9 +1,12 @@
 <ion-view id="page1" dir="rtl">
-  <div style="margin-bottom: 50px"  class="bar bar-footer bar-light">
-</div>
-  <ion-tabs class="tabs-stable tabs-icon-top " id="tabsController-tabs" >
-    
-    <ion-tab title="الرئيسيه" icon="ion-home" href="#/tabs/main" id="tabsController-tab5"  >
+  <div style="margin-bottom: 48px;background-color: rgba(255, 0, 102, 0.4);" class="bar bar-footer " padding="true">
+    <div class="col" ng-repeat="banner in banners" style="width:40px">
+      <img ng-src="http://s-baet.com/cp/upload/{{banner.content}}" style="width:30px;height:40px;margin-top: -8px">
+    </div>
+  </div>
+  <ion-tabs class="tabs-stable tabs-icon-top tabs-color-light" id="tabsController-tabs">
+
+    <ion-tab title="الرئيسيه" icon="ion-home" href="#/tabs/main" id="tabsController-tab5">
       <ion-nav-view name="tab5"></ion-nav-view>
     </ion-tab>
 
